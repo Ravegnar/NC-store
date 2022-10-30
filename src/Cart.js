@@ -1,11 +1,9 @@
 import { useState } from "react";
-//import { loadStripe } from "@stripe/stripe-js";
+//import
 import Input from "./Input.js";
 import Button from "./Button.js";
 
-//const stripeLoadedPromise = loadStripe(
-//  "pk_test_51HsqkCGuhXEITAut89vmc4jtjYd7XPs8hWfo2XPef15MFqI8rCFc8NqQU9WutlUBsd8kmNqHBeEmSrdMMpeEEyfT00KzeVdate"
-//);
+//const stripeLoadedPromise 
 
 export default function Cart({ cart }) {
   const totalPrice = cart.reduce(
@@ -23,23 +21,6 @@ export default function Cart({ cart }) {
     });
 
 //    stripeLoadedPromise.then((stripe) => {
-//      stripe
-//        .redirectToCheckout({
-//          lineItems: lineItems,
-//          mode: "payment",
-//          successUrl: "https://react-tutorial.app/app.html",
-//          cancelUrl: "https://react-tutorial.app/app.html",
-//          customerEmail: email,
-//        })
-//        .then((response) => {
-//          // this will only log if the redirect did not work
-//          console.log(response.error);
-//        })
-//        .catch((error) => {
-//          // wrong API key? you will see the error message here
-//          console.log(error);
-//        });
-//    });
   }
 
   return (

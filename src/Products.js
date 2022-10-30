@@ -6,15 +6,18 @@ import Loader from "./Loader.js";
 export default function Products(props) {
   const [products, setProducts] = useState([]);
   const { get, loading } = useFetch(
-    "https://react-tutorial-demo.firebaseio.com/"
+    "https://nco-store-default-rtdb.europe-west1.firebasedatabase.app/NC-Store/"
   );
 
+  let saver = []
+  
   useEffect(() => {
-    get("supermarket.json")
-      .then((data) => {
-        setProducts(data);
+      get("NCW/Primary.json").then(data => {
+      Object.keys(data).forEach(prod => {
+      saver.push(data[prod])
       })
-      .catch((error) => console.log("Could not load products", error));
+      setProducts(saver);
+      }).catch((error) => console.log("Could not load products", error));
   }, []);
 
   return (
@@ -23,7 +26,7 @@ export default function Products(props) {
       <p>Take a look at our products</p>
       <div className="products-grid">
         {loading && <Loader />}
-        {products.map((product) => {
+        {products.map(product => {
           return (
             <Product
               cart={props.cart}

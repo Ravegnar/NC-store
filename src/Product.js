@@ -15,7 +15,7 @@ export default function Product(props) {
         <Link to={`/products/${details.id}`}>
           <img
             src={details.image}
-            width="100"
+            width="200"
             height="100"
             className="product-image"
             alt={details.name}

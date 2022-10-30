@@ -7,26 +7,28 @@ import ProductDetailStorage from "./ProductDetailStorage.js";
 
 export default function ProductDetails(props) {
   const [product, setProduct] = useState({});
-  const { get } = useFetch("https://react-tutorial-demo.firebaseio.com/");
   const params = useParams();
   const { pathname } = useLocation();
+  const { get, loading } = useFetch(
+    "https://nco-store-default-rtdb.europe-west1.firebasedatabase.app/NC-Store/"
+  );
 
   useEffect(() => {
-    get(`productinfo/id${params.id}.json`)
-      .then((data) => {
-        console.log(data)
-        setProduct(data);
-      })
-      .catch((error) => console.log("Could not load product details", error));
-  }, []);
+      get(`NCW/Primary/${params.id}.json`)
+        .then((data) => {
+            setProduct(data);
+          })
+          .catch((error) => console.log("Could not load product details", error));
+      }, []);
+
   return (
     <div className="product-details-layout">
       <div>
         <h2>{product.name}</h2>
         <img
           src={product.image}
-          width="125"
-          height="125"
+          width="200"
+          height="100"
           className="product-details-image"
           alt={product.name}
         />
