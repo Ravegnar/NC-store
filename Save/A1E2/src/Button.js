@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 export default function Button(props) {
-  const { children, disabled, outline, className, ...rest } = props;
+  const { children, outline, className, ...rest } = props;
 
   const classNames = clsx({
       btn: true,
@@ -12,7 +12,7 @@ export default function Button(props) {
   );
 
   return (
-    <button className={classNames} disabled={disabled} {...rest}>
+    <button className={classNames} {...rest}>
       {children}
     </button>
   );

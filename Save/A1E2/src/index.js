@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import {createRoot} from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Navbar from "./Navbar.js";
-import NavbarSSS from "./NavbarSSS.js";
 import Home from "./Home.js";
 import About from "./About.js";
 import Products from "./Products.js";
@@ -12,8 +11,7 @@ import ProductDetails from "./ProductDetails.js";
 import Cart from "./Cart.js";
 import Operatives from "./Operatives.js";
 import OperativeDetails from "./OperativeDetails.js";
-import InfantryGear from "./InfantryGear.js";
-import WeaponDetails from "./WeaponDetails.js";
+import Weapons from "./Weapons.js";
 
 function App() {
   const [cart, setCart] = useState(function () {
@@ -69,7 +67,6 @@ function App() {
   return (<>
           <BrowserRouter>
             <Navbar cart={cart} />
-            <NavbarSSS />
             <div className="container">
               <Routes>
                 <Route
@@ -79,6 +76,20 @@ function App() {
                 <Route
                   path="/about"
                   element={<About />}
+                />
+                <Route
+                  path="/products"
+                  element={<Products
+                    cart={cart}
+                    onProductAdd={handleProductAdd}
+                    onProductDelete={handleProductDelete}
+                  />}
+                />
+                <Route
+                  path="/products/:id/*"
+                  element={<ProductDetails
+                    onProductAdd={handleProductAdd}
+                  />}
                 />
                 <Route
                   path="store"
@@ -94,12 +105,8 @@ function App() {
                   element={<OperativeDetails />}
                 />
                 <Route 
-                  path="/store/NSW/*"
-                  element={<InfantryGear />}
-                />
-                <Route
-                  path="/store/NSW/weapons/:id/*"
-                  element={<WeaponDetails />}
+                  path="/store/NSW"
+                  element={<Weapons />}
                 />
                 <Route
                   path="/cart"

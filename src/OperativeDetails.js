@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import {NavLink, Routes, Route, useParams, useLocation} from "react-router-dom";
+import OperativeDetailInfo from "./OperativeDetailInfo.js";
+import OperativeDetailGear from "./OperativeDetailGear.js";
+import OperativeDetailStats from "./OperativeDetailStats.js";
 import useFetch from "./useFetch.js";
-import ProductDetailInfo from "./ProductDetailInfo.js";
-import ProductDetailNutrition from "./ProductDetailNutrition.js";
-import ProductDetailStorage from "./ProductDetailStorage.js";
 
-export default function ProductDetails(props) {
-  const [product, setProduct] = useState({});
+export default function OperativeDetails(props) {
+  const [operative, setOperative] = useState({});
   const params = useParams();
   const { pathname } = useLocation();
   const { get, loading } = useFetch(
@@ -14,24 +14,24 @@ export default function ProductDetails(props) {
   );
 
   useEffect(() => {
-      get(`NCW/Primary/${params.id}.json`)
+      get(`NCO/${params.id}.json`)
         .then((data) => {
-            setProduct(data);
+            setOperative(data);
           })
-          .catch((error) => console.log("Could not load product details", error));
+          .catch((error) => console.log("Could not load operative details", error));
       }, []);
 
   return (
     <div className="product-details-layout">
       <div>
-        <h2>{product.name}</h2>
+        <h2>{operative.name}</h2>
         <img
-          src={product.image}
+          src={operative.image}
           backgroundcolor="black"
-          width="200"
-          height="100"
+          width="50"
+          height="50"
           className="product-details-image"
-          alt={product.name}
+          alt={operative.name}
         />
       </div>
       <div>
@@ -40,22 +40,22 @@ export default function ProductDetails(props) {
             <li>
               <NavLink
                 className={(navData) => navData.isActive ? "tab-active" : "" }
-                to={"/products/" + params.id} end>
-                Details
+                to={`/store/NSO/${operative.id}`} end>
+                Info
               </NavLink>
             </li>
             <li>
               <NavLink
                 className={(navData) => navData.isActive ? "tab-active" : "" }
-                to={"/products/" + params.id + "/nutrition"}>
-                Nutrition
+                to={`/store/NSO/${operative.id}/gear`}>
+                Gear
               </NavLink>
             </li>
             <li>
               <NavLink
                 className={(navData) => navData.isActive ? "tab-active" : "" }
-                to={"/products/" + params.id +"/storage"}>
-                Storage
+                to={`/store/NSO/${operative.id}/stats`}>
+                Stats
               </NavLink>
             </li>
           </ul>
@@ -63,15 +63,15 @@ export default function ProductDetails(props) {
         <Routes>
           <Route 
             path="/"
-            element={<ProductDetailInfo product={product} onProductAdd={props.onProductAdd} />}
+            element={<OperativeDetailInfo operative={operative} onProductAdd={props.onProductAdd} />}
           />
           <Route 
-            path="/nutrition"
-            element={<ProductDetailNutrition nutrition={product.nutrition} />}
+            path="/gear"
+            element={<OperativeDetailGear operative={operative} />}
           />
           <Route 
-            path="/storage"
-            element={<ProductDetailStorage storage={product.storage} />}
+            path="/stats"
+            element={<OperativeDetailStats operative={operative} />}
           />
         </Routes>
       </div>

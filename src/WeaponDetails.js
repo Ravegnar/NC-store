@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import {NavLink, Routes, Route, useParams, useLocation} from "react-router-dom";
+import WeaponDetailInfo from "./WeaponDetailInfo.js";
+import WeaponDetailGear from "./WeaponDetailGear.js";
+import WeaponDetailStats from "./WeaponDetailStats.js";
 import useFetch from "./useFetch.js";
-import ProductDetailInfo from "./ProductDetailInfo.js";
-import ProductDetailNutrition from "./ProductDetailNutrition.js";
-import ProductDetailStorage from "./ProductDetailStorage.js";
 
-export default function ProductDetails(props) {
-  const [product, setProduct] = useState({});
+export default function WeaponDetails(props) {
+  const [weapon, setWeapon] = useState({});
   const params = useParams();
   const { pathname } = useLocation();
   const { get, loading } = useFetch(
@@ -16,22 +16,22 @@ export default function ProductDetails(props) {
   useEffect(() => {
       get(`NCW/Primary/${params.id}.json`)
         .then((data) => {
-            setProduct(data);
+            setWeapon(data);
           })
-          .catch((error) => console.log("Could not load product details", error));
+          .catch((error) => console.log("Could not load weapon details", error));
       }, []);
 
   return (
     <div className="product-details-layout">
       <div>
-        <h2>{product.name}</h2>
+        <h2>{weapon.name}</h2>
         <img
-          src={product.image}
+          src={weapon.image}
           backgroundcolor="black"
           width="200"
           height="100"
           className="product-details-image"
-          alt={product.name}
+          alt={weapon.name}
         />
       </div>
       <div>
@@ -40,22 +40,22 @@ export default function ProductDetails(props) {
             <li>
               <NavLink
                 className={(navData) => navData.isActive ? "tab-active" : "" }
-                to={"/products/" + params.id} end>
-                Details
+                to={`/store/NSW/weapons/${weapon.id}`} end>
+                Info
               </NavLink>
             </li>
             <li>
               <NavLink
                 className={(navData) => navData.isActive ? "tab-active" : "" }
-                to={"/products/" + params.id + "/nutrition"}>
-                Nutrition
+                to={`/store/NSW/weapons/${weapon.id}/gear`}>
+                Gear
               </NavLink>
             </li>
             <li>
               <NavLink
                 className={(navData) => navData.isActive ? "tab-active" : "" }
-                to={"/products/" + params.id +"/storage"}>
-                Storage
+                to={`/store/NSW/weapons/${weapon.id}/stats`}>
+                Stats
               </NavLink>
             </li>
           </ul>
@@ -63,15 +63,15 @@ export default function ProductDetails(props) {
         <Routes>
           <Route 
             path="/"
-            element={<ProductDetailInfo product={product} onProductAdd={props.onProductAdd} />}
+            element={<WeaponDetailInfo weapon={weapon} onProductAdd={props.onProductAdd} />}
           />
           <Route 
-            path="/nutrition"
-            element={<ProductDetailNutrition nutrition={product.nutrition} />}
+            path="/gear"
+            element={<WeaponDetailGear weapon={weapon} />}
           />
           <Route 
-            path="/storage"
-            element={<ProductDetailStorage storage={product.storage} />}
+            path="/stats"
+            element={<WeaponDetailStats weapon={weapon} />}
           />
         </Routes>
       </div>

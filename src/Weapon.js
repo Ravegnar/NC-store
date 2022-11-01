@@ -1,18 +1,13 @@
 import { Link } from "react-router-dom";
 import Button from "./Button.js";
 
-export default function Product(props) {
+export default function Weapon(props) {
   const { details } = props;
-
-  const productFromCart = props.cart.find(
-    (product) => product.id === details.id
-  );
-  const quantity = productFromCart ? productFromCart.quantity : 0;
 
   return (
     <div className="product">
       <div className="product-image-container">
-        <Link to={`/products/${details.id}`}>
+        <Link to={`/store/NSW/weapons/${details.id}`}>
           <img
             src={details.image}
             width="200"
@@ -21,11 +16,6 @@ export default function Product(props) {
             alt={details.name}
           />
         </Link>
-        {quantity > 0 && (
-          <div className="product-quantity-container">
-            <div className="product-quantity">{quantity}</div>
-          </div>
-        )}
       </div>
       <div className="product-info">
         <h3>{details.name}</h3>
@@ -33,7 +23,6 @@ export default function Product(props) {
       </div>
       <div className="product-checkout">
         <div>
-          {quantity > 0 && (
             <Button
               outline
               onClick={() => props.onProductDelete(details.id)}
@@ -41,7 +30,6 @@ export default function Product(props) {
             >
               x
             </Button>
-          )}
         </div>
         <Button outline onClick={() => props.onProductAdd(details)}>
           ${details.price}
