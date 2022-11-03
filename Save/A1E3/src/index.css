@@ -43,44 +43,6 @@ body.dark {
   --surface-shadow: #222;
 }
 
-.bg-NSO {
-  background: #D0E4F5 url("http://ravengar.wz.cz/Images/NS/gr-ku.jpg") no-repeat scroll 50% 10%;
-  background-size: cover;
-  filter: brightness(1)
-  
-}
-.bg-NSO::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, #00000096 0%, transparent 50%, #000000c4 100%);
-  z-index: -1;
-}
-
-.bg-NSW {
-  background: #D0E4F5 url("http://ravengar.wz.cz/Images/NS/Store.jpg") no-repeat scroll 50% 50%;
-  background-size: cover;
-  filter: brightness(1);
-}
-.bg-NSW::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, #00000081 0%, transparent 50%, #000000c4 100%);
-  z-index: -1;
-}
-
-.bg-line {
-  width: 100%;
-  height: 6px;
-  background: linear-gradient(to right, #000000 0%, #04d9ffbd 50%, #000000 100%);
-  filter: brightness(1);
-}
-/*
 h1 {
   font-size: 36px;
   font-weight: 600;
@@ -113,14 +75,13 @@ a:hover {
 .rounded {
   border-radius: 30px;
 }
-*/
-/*
+
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
 }
-/*
+
 /* BUTTONS */
 .btn {
   border-radius: 3px;
@@ -300,9 +261,7 @@ input:focus {
   padding: 10px 25px;
 }
 */
-.active {
-  color: orange;
-}
+
 /* TABS */
 .tabs {
   margin: 0 0 40px 0;
@@ -573,3 +532,9 @@ input:focus {
   min-width: auto;
   padding: 5px;
 }
+
+
+
+
+
+

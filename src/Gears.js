@@ -1,6 +1,7 @@
 import StoreNavigation from "./StoreNavigation.js";
 
-export default function Tools() {
+
+export default function Gears() {
  
   return (<>
     <StoreNavigation />

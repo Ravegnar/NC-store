@@ -1,0 +1,68 @@
+NSO
+
+Nanite Systems Operatives are a 'faction' of unaffiliated, remotely-controlled combat units 
+created by Nanite Systems, whose allegiance is sworn to no single empire.
+
+Nanite Systems Operatives are robotic units contracted out to the other factions. They are 
+considered a "fourth faction" despite being "assigned" to the faction with the lowest-population on the continent.
+
+Nanite Systems Operatives (NSO): Nanite Systems Operatives are not a unified group of soldiers, but rather robot 
+mercenaries who hold no allegiance to any faction and fight on a contractual basis for the highest bidder. Nanite 
+Systems staff operate these robotic units remotely by proxy, much unlike the fully human combatants the three factions 
+typically employ.[43] NSO units are automatically assigned to the Terran Republic, New Conglomerate or Vanu 
+Sovereignty depending on which faction has the lowest population, but can also remain loyal to one faction
+unconditionally (available only to subscribed players in-game).[44] Although they lack access to other empires'
+ weapons and vehicles, NSO units can use all common pool equipment, which emphasizes versatility and utility, 
+ in addition to their own unique arsenal of weapons and vehicles.
+
+
+NS
+
+Nanite Systems produces a pool of common weapons, equipment, and vehicles that are available for all three empires. 
+Items created by Nanite Systems offer quite a large deal of customization options. All posts' banners and signs 
+revert to Nanite System's logo and colors when they are unowned by any empire.  
+
+Nanite Systems was once a small company on Earth that researched and developed nanotechnology and worked with 
+the Terran Republic, building prefabricated buildings for the expeditions through the wormhole. Since 
+re-establishing business on Auraxis and being integral in the discovery and production of modern Nanite 
+technology, they have branched out to other industries such as rebirth technology, vehicle design, and 
+weapon design. Nanite Systems manages to stay neutral in the Auraxian War conflict by providing military 
+contract work to all three factions, plus providing the vital rebirthing services which keep Auraxians 
+immortal. Thus they have remained safe from takeover by any one faction. 
+
+NS weapons have neutral color tones of tan, black, and white. The designs are a combination of every empires' 
+characteristics, serving as a middle ground between all three factions in terms of performance. The exception 
+to this rule are the pistols and rocket launchers, as these weapons have an emphasis on power over all else.  
+
+Almost every Empire's standard equipment pieces (Medical Applicator, Nano-Armor Kits, Recon Detectors, etc) 
+are designed and produced by Nanite Systems, as well as common vehicles such as the Sunderer or Valkyrie.
+
+
+import CartIcon from './SC1.jpg';
+
+          <img
+            src={CartIcon}
+            width="100"
+            height="100"
+          />
+
+          <Route
+          path="/store/:id/*"
+          element={<ProductDetails
+            onProductAdd={handleProductAdd}
+        />}
+        />
+
+
+        <Link to={`/store/NCO/${params.id}`}>
+          {params.id}
+          </Link>
+
+          {operatives.map(operative => {
+            return (
+              <Operative
+                key={operative.id}
+                details={operative}
+              ></Operative>
+            );
+          })}

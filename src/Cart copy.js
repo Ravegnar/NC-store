@@ -10,7 +10,6 @@ export default function Cart({ cart }) {
     (total, product) => total + product.price * product.quantity,
     0
   );
-  console.log(cart)
 
   const [email, setEmail] = useState("");
 

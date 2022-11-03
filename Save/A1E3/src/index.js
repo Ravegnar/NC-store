@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import {createRoot} from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Navbar from "./Navbar.js";
+import NavbarSSS from "./NavbarSSS.js";
 import Home from "./Home.js";
 import About from "./About.js";
 import Products from "./Products.js";
@@ -67,8 +68,9 @@ function App() {
 
   return (<>
           <BrowserRouter>
-            <section className="bg-white dark:bg-gray-900 min-h-screen">
             <Navbar cart={cart} />
+            <NavbarSSS />
+            <div className="container">
               <Routes>
                 <Route
                   path="/"
@@ -85,34 +87,26 @@ function App() {
                 />
                 <Route 
                   path="/store/NSO"
-                  element={<Operatives 
-                    cart={cart}
-                    onProductAdd={handleProductAdd}
-                    onProductDelete={handleProductDelete}
-                  />}
+                  element={<Operatives />}
                 />
                 <Route
                   path="/store/NSO/:id/*"
-                  element={<OperativeDetails onProductAdd={handleProductAdd} />}
+                  element={<OperativeDetails />}
                 />
                 <Route 
                   path="/store/NSW/*"
-                  element={<InfantryGear 
-                    cart={cart}
-                    onProductAdd={handleProductAdd}
-                    onProductDelete={handleProductDelete}
-                  />}
+                  element={<InfantryGear />}
                 />
                 <Route
                   path="/store/NSW/weapons/:id/*"
-                  element={<WeaponDetails onProductAdd={handleProductAdd} />}
+                  element={<WeaponDetails />}
                 />
                 <Route
                   path="/cart"
                   element={<Cart cart={cart} />}
                 />
               </Routes>
-            </section>
+            </div>
         </BrowserRouter>
   </>);
 }

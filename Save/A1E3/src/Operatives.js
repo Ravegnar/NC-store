@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import Product from "./Product.js";
+import {NavLink,  Link, Routes, Route, useParams} from "react-router-dom";
 import useFetch from "./useFetch.js";
 import Loader from "./Loader.js";
+import Operative from "./Operative.js";
 
-export default function Products(props) {
-  const [products, setProducts] = useState([]);
+export default function Operatives() {
+  const [operatives, setOperatives] = useState([]);
+  const params = useParams();
   const { get, loading } = useFetch(
     "https://nco-store-default-rtdb.europe-west1.firebasedatabase.app/NC-Store/"
   );
@@ -12,29 +14,26 @@ export default function Products(props) {
   let saver = []
   
   useEffect(() => {
-      get("NCW/Primary.json").then(data => {
+      get("NCO.json").then(data => {
       Object.keys(data).forEach(prod => {
       saver.push(data[prod])
       })
-      setProducts(saver);
-      }).catch((error) => console.log("Could not load products", error));
+      setOperatives(saver);
+      }).catch((error) => console.log("Could not load operatives", error));
   }, []);
 
   return (
     <div className="products-layout">
-      <h1>Products</h1>
+      <h1>Operatives</h1>
       <p>Take a look at our products</p>
       <div className="products-grid">
         {loading && <Loader />}
-        {products.map(product => {
+        {operatives.map(operative => {
           return (
-            <Product
-              key={product.id}
-              details={product}
-              cart={props.cart}
-              onProductAdd={props.onProductAdd}
-              onProductDelete={props.onProductDelete}
-            ></Product>
+            <Operative
+              key={operative.id}
+              operative={operative}
+            ></Operative>
           );
         })}
       </div>

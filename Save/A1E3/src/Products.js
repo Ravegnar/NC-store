@@ -29,9 +29,9 @@ export default function Products(props) {
         {products.map(product => {
           return (
             <Product
+              cart={props.cart}
               key={product.id}
               details={product}
-              cart={props.cart}
               onProductAdd={props.onProductAdd}
               onProductDelete={props.onProductDelete}
             ></Product>
