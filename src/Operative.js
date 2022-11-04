@@ -1,23 +1,24 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Button from "./Button.js";
 
 export default function Operative(props) {
   const { operative } = props;
-  console.log(props)
   const productFromCart = props.cart.find(
     (product) => product.id === operative.id
   );
   const quantity = productFromCart ? productFromCart.quantity : 0;
+  const pathname = `/store/NSO/${operative.id}`
+  
   return (<>
-    <div>
+    <div className="p-1 pb-8 bg-slate-800">
       <Link to={`/store/NSO/${operative.id}`} >
-        <div className="w-full overflow-hidden rounded-lg bg-slate-800 p-6">
+        <div className="w-full overflow-hidden rounded-lg p-6">
           <img
             src={operative.image}
             alt={operative.name}
             width="50"
             height="50"
-            className="h-full w-full object-cover object-center group-hover:opacity-75"
+            className="h-56 w-full object-cover object-top group-hover:opacity-75"
             />
         </div>
       </Link>
@@ -37,7 +38,7 @@ export default function Operative(props) {
           )}
         </div>
         <p className="mb-3 text-sm text-white">{operative.type}</p>
-        <Button outline onClick={() => props.onProductAdd(operative)}>
+        <Button outline onClick={() => props.onProductAdd({...operative, path: pathname})}>
           ${operative.price}
         </Button>
       </div>

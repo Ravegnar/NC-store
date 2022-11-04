@@ -22,3 +22,18 @@ export default function StoreNavigation(props) {
       </div>
   );
 }
+
+
+//<div className="px-4 py-3">         
+//<p className="text-sm leading-5">Signed in as</p>
+//<p className="text-sm font-medium leading-5 text-gray-900 truncate">tom@example.com</p>
+//</div>
+//<div className="py-1">
+//<a tabIndex="0" className="text-white flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Account settings</a>
+//<a tabIndex="1" className="text-white flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Support</a>
+//<span role="menuitem" tabIndex="-1" className="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-white cursor-not-allowed opacity-50" aria-disabled="true">New feature (soon)</span>
+//<a tabIndex="2" className="text-white flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem" >License</a>
+//</div>
+//<div className="py-1">
+//<a tabIndex="3" className="text-white flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Sign out</a>
+//</div>

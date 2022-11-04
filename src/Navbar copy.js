@@ -1,5 +1,5 @@
 import {NavLink} from "react-router-dom";
-import {useState} from "react";
+import { useState} from "react";
 
 export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -78,10 +78,8 @@ export default function Navbar(props) {
               </div>
             </div>
 
-            <li onClick={props.onOpenCart} className="cursor-pointer" >
-              <a className={navLink}>
-                CART ({cartCount})
-              </a>
+            <li>
+              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/cart">Cart ({cartCount})</NavLink>
             </li>
           </ul>
         </div>

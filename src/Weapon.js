@@ -8,6 +8,8 @@ export default function Weapon(props) {
     (product) => product.id === details.id
   );
   const quantity = productFromCart ? productFromCart.quantity : 0;
+  const pathname = `/store/NSW/weapons/${details.id}`
+
   return (<>
     <div>
       <Link to={`/store/NSW/weapons/${details.id}`} >
@@ -23,7 +25,7 @@ export default function Weapon(props) {
       </Link>
       {quantity > 0 && (
           <div className="relative">
-            <div className=" text-white font-bold absolute m-2">{quantity}</div>
+            <div className=" text-white font-bold absolute m-2">Qty {quantity}</div>
           </div>
         )}
       <div className=" text-center">
@@ -37,7 +39,7 @@ export default function Weapon(props) {
           )}
         </div>
         <p className="mb-3 text-sm text-white">{details.type}</p>
-        <Button outline onClick={() => props.onProductAdd(details)}>
+        <Button outline onClick={() => props.onProductAdd({...details, path: pathname})}>
           ${details.price}
         </Button>
       </div>

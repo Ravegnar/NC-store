@@ -32,3 +32,19 @@
   </div>
 
 </section>
+
+
+lg:w-1/2 w-full lg:h- h-fit object-cover object-top rounded px-4
+
+<img
+src={operative.image}
+backgroundcolor="black"
+width="50"
+height="50"
+className="product-details-image"
+alt={operative.name}
+/>
+
+<li>
+<NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/cart">Cart ({cartCount})</NavLink>
+</li>

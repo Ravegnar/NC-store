@@ -15,6 +15,7 @@ import InfantryGear from "./InfantryGear.js";
 import WeaponDetails from "./WeaponDetails.js";
 
 function App() {
+  const [open, setOpen] = useState(false)
   const [cart, setCart] = useState(function () {
     let savedCart = [];
     try {
@@ -30,6 +31,10 @@ function App() {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
+
+  function handleOpenCart() {
+    setOpen(!open);
+  }
 
   function handleProductDelete(id) {
     const updatedCart = cart.filter((product) => product.id !== id);
@@ -68,7 +73,13 @@ function App() {
   return (<>
           <BrowserRouter>
             <section className="bg-white dark:bg-gray-900 min-h-screen">
-            <Navbar cart={cart} />
+            <Navbar cart={cart} onOpenCart={handleOpenCart} />
+            <Cart
+              onOpenCart={handleOpenCart}
+              onProductDelete={handleProductDelete}
+              open={open}
+              cart={cart}
+            />
               <Routes>
                 <Route
                   path="/"

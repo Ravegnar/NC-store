@@ -26,7 +26,7 @@ export default function Operatives(props) {
     <div className="">
       <div className="mx-auto max-w-2xl px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
       <h2 className="text-white text-3xl text-center font-bold py-5">Operatives</h2>
-        <div className="grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 mx-12 md:mx-0 lg:mx-12">
+        <div className="grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 mx-2 sm:mx-12 md:mx-0 lg:mx-12">
         {loading && <Loader />}
         {operatives.map(operative => {
           return (

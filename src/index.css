@@ -47,7 +47,6 @@ body.dark {
   background: #D0E4F5 url("http://ravengar.wz.cz/Images/NS/gr-ku.jpg") no-repeat scroll 50% 10%;
   background-size: cover;
   filter: brightness(1)
-  
 }
 .bg-NSO::before {
   content: '';
@@ -79,6 +78,10 @@ body.dark {
   height: 6px;
   background: linear-gradient(to right, #000000 0%, #04d9ffbd 50%, #000000 100%);
   filter: brightness(1);
+}
+
+.kundovina {
+  max-height: 750px;
 }
 /*
 h1 {
@@ -303,7 +306,7 @@ input:focus {
 .active {
   color: orange;
 }
-/* TABS */
+/* TABS
 .tabs {
   margin: 0 0 40px 0;
   border-bottom: var(--neutral-4) solid 1px;
@@ -327,7 +330,8 @@ input:focus {
   padding-left: 15px;
   padding-right: 15px;
 }
-.tabs .tab-active {
+ */
+.tab-active {
   border-bottom: 7px solid var(--primary-1);
 }
 
@@ -572,4 +576,10 @@ input:focus {
 .theme-switcher {
   min-width: auto;
   padding: 5px;
+}
+
+.dropdown:focus-within .dropdown-menu {
+  opacity:1;
+  transform: translate(0) scale(1);
+  visibility: visible;
 }
