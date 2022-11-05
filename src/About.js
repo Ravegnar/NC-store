@@ -1,23 +1,23 @@
 export default function About() {
-    return (
-      <div className="about-layout">
-        <div>
-          <h1>About Us</h1>
-          <p>
-            We started operations in 2020. We guarantee fresh produce.
-            <br />
-            Save time by shopping on our app and we'll deliver the products right
-            to your home. <br />
-            <em>We use Stripe to process your payment.</em>
-          </p>
+    return (<>
+    <div className="relative overflow-hidden bg-no-repeat bg-cover about">
+      <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed">
+        <div className="flex justify-center items-center h-full">
+          <div className="text-center text-white px-6 md:px-12">
+            <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12">
+              The best offer on the market <br /><span>for your business</span>
+            </h1>
+            <button
+              type="button"
+              className="inline-block px-7 py-3 border-2 border-white text-white font-medium text-sm leading-snug uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              data-mdb-ripple="true"
+              data-mdb-ripple-color="light"
+            >
+              Get started
+            </button>
+          </div>
         </div>
-        <img
-          src="https://res.cloudinary.com/dbfn5lnvx/image/upload/q_auto,w_550/v1607770215/react-tutorial/supermarket/about.jpg"
-          height="275"
-          width="183"
-          className="rounded"
-          alt=""
-        />
       </div>
-    );
-  }
+    </div>
+  </>)
+}

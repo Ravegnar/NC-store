@@ -61,7 +61,7 @@ export default function WeaponDetails(props) {
                 element={<WeaponDetailStats weapon={weapon} />}
               />
             </Routes>
-            <div className="flex mt-8 absolute bottom-0">
+            <div className="flex mt-8">
               <span className="title-font font-medium text-2xl text-white">${weapon.price}</span>
               <Button onClick={() => props.onProductAdd({...weapon, path: pathname})} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" >
                 Add to cart

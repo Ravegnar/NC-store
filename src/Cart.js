@@ -1,6 +1,8 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import {Link} from "react-router-dom";
+
 //import
 //import Input from "./Input.js";
 //import Button from "./Button.js";
@@ -69,7 +71,7 @@ export default function Cart(props) {
                 leaveTo="translate-x-full"
               >
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
-                  <div className="flex h-full flex-col overflow-y-scroll bg-slate-900 shadow-xl">
+                  <div className="flex h-full flex-col scrollbar-hide overflow-y-scroll bg-slate-900 shadow-xl">
                     <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium text-white">Shopping cart</Dialog.Title>
@@ -93,7 +95,7 @@ export default function Cart(props) {
                           <ul role="list" className="-my-6 divide-y divide-slate-600">
                             {cart.map((product) => (
                               <li key={product.id} className="flex py-6">
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-slate-700">
+                                <div className="h-24 w-24 flex-shrink-0 scrollbar-hide overflow-hidden rounded-md border border-slate-700">
                                   <img
                                     src={product.image}
                                     alt={product.name}
@@ -145,12 +147,13 @@ export default function Cart(props) {
                       </div>
                       <p className="mt-0.5 text-sm text-gray-300">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
-                        <a
-                          href="#"
+                        <Link
+                          to="/checkout"
                           className="flex items-center justify-center rounded-md border border-transparent bg-cyan-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-700"
+                          onClick={onOpenCart}
                         >
                           Checkout
-                        </a>
+                        </Link>
                       </div>
                       <div className="mt-3 flex justify-center text-center text-sm text-gray-300">
                         <p>

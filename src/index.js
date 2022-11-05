@@ -5,7 +5,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Navbar from "./Navbar.js";
 import Home from "./Home.js";
 import About from "./About.js";
-import Products from "./Products.js";
+import Checkout from "./Checkout.js";
 import Store from "./Store.js";
 import ProductDetails from "./ProductDetails.js";
 import Cart from "./Cart.js";
@@ -72,7 +72,7 @@ function App() {
 
   return (<>
           <BrowserRouter>
-            <section className="bg-white dark:bg-gray-900 min-h-screen">
+            <section className="bg-gray-900 max-h-screen overflow-y-scroll snap snap-y snap-mandatory scrollbar-hide scroll-smooth">
             <Navbar cart={cart} onOpenCart={handleOpenCart} />
             <Cart
               onOpenCart={handleOpenCart}
@@ -119,10 +119,11 @@ function App() {
                   element={<WeaponDetails onProductAdd={handleProductAdd} />}
                 />
                 <Route
-                  path="/cart"
-                  element={<Cart cart={cart} />}
+                  path="/checkout"
+                  element={<Checkout cart={cart} onProductDelete={handleProductDelete} />}
                 />
               </Routes>
+              
             </section>
         </BrowserRouter>
   </>);
