@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/NC-store/static/css/main.1067306f.css",
-    "main.js": "/NC-store/static/js/main.b1f86c04.js",
+    "main.css": "/NC-store/static/css/main.4f9be32a.css",
+    "main.js": "/NC-store/static/js/main.1232f7b6.js",
+    "static/media/SC5S.jpg": "/NC-store/static/media/SC5S.bbee96e33fd8fb09e5f7.jpg",
     "index.html": "/NC-store/index.html",
-    "main.1067306f.css.map": "/NC-store/static/css/main.1067306f.css.map",
-    "main.b1f86c04.js.map": "/NC-store/static/js/main.b1f86c04.js.map"
+    "main.4f9be32a.css.map": "/NC-store/static/css/main.4f9be32a.css.map",
+    "main.1232f7b6.js.map": "/NC-store/static/js/main.1232f7b6.js.map"
   },
   "entrypoints": [
-    "static/css/main.1067306f.css",
-    "static/js/main.b1f86c04.js"
+    "static/css/main.4f9be32a.css",
+    "static/js/main.1232f7b6.js"
   ]
 }
