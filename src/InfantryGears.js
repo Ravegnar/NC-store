@@ -1,4 +1,5 @@
-import {NavLink, Routes, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {useEffect} from "react";
 
 const callouts = [
   {
@@ -6,26 +7,29 @@ const callouts = [
     description: 'Work from home accessories',
     imageSrc: 'http://ravengar.wz.cz/Images/NS/Weapon.png',
     imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
-    href: "/store/NSW/weapons",
+    href: "/NC-store/store/NSW/weapons",
   },
   {
     name: 'Tools',
     description: 'Journals and note-taking',
     imageSrc: 'http://ravengar.wz.cz/Images/NS/Tool.png',
     imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
-    href: "/store/NSW/tools",
+    href: "/NC-store/store/NSW/tools",
   },
   {
     name: 'Equipment',
     description: 'Daily commute essentials',
     imageSrc: 'http://ravengar.wz.cz/Images/NS/Equip.png',
     imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
-    href: "/store/NSW/equipment",
+    href: "/NC-store/store/NSW/equipment",
   },
 ]
 
 export default function InfantryGears() {
- 
+  useEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [])
+
   return (<>
     <div className="bg-NSW w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -43,10 +47,10 @@ export default function InfantryGears() {
                   />
                 </div>
                 <h3 className="mt-6 text-3xl font-bold text-center text-white">
-                  <a href={callout.href}>
+                  <Link to={callout.href}>
                     <span className="absolute inset-0" />
                     {callout.name}
-                  </a>
+                  </Link>
                 </h3>
                 <p className="text-base text-center font-semibold text-white">{callout.description}</p>
               </div>

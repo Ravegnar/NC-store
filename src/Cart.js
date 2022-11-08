@@ -97,7 +97,7 @@ export default function Cart(props) {
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 scrollbar-hide overflow-hidden rounded-md border border-slate-700">
                                   <img
-                                    src={product.image}
+                                    src={require("" + product.image)}
                                     alt={product.name}
                                     className="h-full w-full object-contain bg-slate-800 object-center"
                                   />
@@ -148,7 +148,7 @@ export default function Cart(props) {
                       <p className="mt-0.5 text-sm text-gray-300">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
                         <Link
-                          to="/checkout"
+                          to="/NC-store/checkout"
                           className="flex items-center justify-center rounded-md border border-transparent bg-cyan-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-700"
                           onClick={onOpenCart}
                         >

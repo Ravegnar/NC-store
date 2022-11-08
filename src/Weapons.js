@@ -10,6 +10,10 @@ export default function Weapons(props) {
     "https://nco-store-default-rtdb.europe-west1.firebasedatabase.app/NC-Store/"
   );
 
+  useEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [])
+  
   let saver = []
 
   useEffect(() => {

@@ -1,4 +1,5 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import Footer from "./Footer.js";
 
 export default function Checkout(props) {
     const [showModal, setShowModal] = useState(false);
@@ -61,6 +62,10 @@ export default function Checkout(props) {
         setShowModal(true)
         localStorage.clear();
     }
+
+    useEffect(() => {
+      document.documentElement.scrollTo(0, 0);
+    }, [])
 
     return (<>
     <div className="grid grid-cols-5 bg-slate-900 items-start">
@@ -170,7 +175,7 @@ export default function Checkout(props) {
                 {cart.map((product) => (
                     <li key={product.name} className="grid grid-cols-6 gap-2 border-b-1">
                         <div className="col-span-2 mr-2 self-center">
-                            <img src={product.image} alt="Product" className="rounded w-full bg-slate-900 h-20 px-1 object-contain object-center" />
+                            <img src={require("" + product.image)} alt="Product" className="rounded w-full bg-slate-900 h-20 px-1 object-contain object-center" />
                         </div>
                         <div className="flex flex-col col-span-2 pt-2">
                             <a href={product.path} className="text-cyan-600 font-bold text-md font-semi-bold">{product.name}</a>
@@ -208,7 +213,7 @@ export default function Checkout(props) {
           >
             <div className="relative w-auto my-6 mx-auto max-w-xl">
               {/*content*/}
-              <div className="border-0 shadow-lg relative flex flex-col w-full bg-slate-700 outline-none focus:outline-none">
+              <div className="border-0 shadow-lg relative flex flex-col w-full bg-slate-800 outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-center text-center justify-center p-5 rounded-t">
                   <h3 className="text-3xl text-white font-semibold">
@@ -229,7 +234,7 @@ export default function Checkout(props) {
                     className="bg-cyan-700 text-white active:bg-cyan-800 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowModal(false)}
-                    href="/"
+                    href="/NC-store/"
                   >
                     Go back to Nanite Systems
                   </a>
@@ -240,5 +245,6 @@ export default function Checkout(props) {
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
+    <Footer />
     </>)
 }

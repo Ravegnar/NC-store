@@ -4,6 +4,7 @@ import Gears from "./Gears.js";
 import Weapons from "./Weapons.js";
 import Tools from "./Tools.js";
 import InfantryGears from "./InfantryGears.js";
+import Footer from "./Footer.js";
 
 export default function InfantryGearCopy(props) {
 
@@ -33,5 +34,6 @@ export default function InfantryGearCopy(props) {
         />
       </Routes>
     </div>
+    <Footer />
   </>);
 }

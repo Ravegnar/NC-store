@@ -5,14 +5,20 @@ import OperativeDetailGear from "./OperativeDetailGear.js";
 import OperativeDetailWeapons from "./OperativeDetailWeapons.js";
 import useFetch from "./useFetch.js";
 import Button from "./Button.js";
+import Footer from "./Footer.js";
 
 export default function OperativeDetails(props) {
-  const [operative, setOperative] = useState({});
+  const [operative, setOperative] = useState(false);
   const params = useParams();
   const { pathname } = useLocation();
   const { get, loading } = useFetch(
     "https://nco-store-default-rtdb.europe-west1.firebasedatabase.app/NC-Store/"
   );
+  
+  useEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [])
+  
 
   useEffect(() => {
       get(`NCO/${params.id}.json`)
@@ -23,8 +29,8 @@ export default function OperativeDetails(props) {
       }, []);
 
   const tabClasses = "flex-grow sm:w-1/3 text-white border-b-2 border-gray-300 py-2 text-lg px-1"
-
-  return (<>
+console.log(operative.image)
+return (<>
     <section className="text-white body-font overflow-hidden">
       <div className="container px-5 py-10 lg:pt-12 mx-auto lg:max-h-[52rem] xl:max-h-[48rem] 2xl:max-h-[47rem]">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
@@ -34,17 +40,17 @@ export default function OperativeDetails(props) {
             <div className="flex text-center mb-4">
               <NavLink
                 className={(navData) => navData.isActive ? `${tabClasses}  text-indigo-500 border-b-2 border-indigo-500` : `${tabClasses}` }
-                to={`/store/NSO/${operative.id}`} end>
+                to={`/NC-store/store/NSO/${operative.id}`} end>
                   Description
               </NavLink>
               <NavLink
                 className={(navData) => navData.isActive ? `${tabClasses}  text-indigo-500 border-b-2 border-indigo-500` : `${tabClasses}` }
-                to={`/store/NSO/${operative.id}/weapons`}>
+                to={`/NC-store/store/NSO/${operative.id}/weapons`}>
                   Weapons
               </NavLink>
               <NavLink
                 className={(navData) => navData.isActive ? `${tabClasses}  text-indigo-500 border-b-2 border-indigo-500` : `${tabClasses}` }
-                to={`/store/NSO/${operative.id}/gear`}>
+                to={`/NC-store/store/NSO/${operative.id}/gear`}>
                   Gear
               </NavLink>
             </div>
@@ -74,9 +80,13 @@ export default function OperativeDetails(props) {
               </button>
             </div>
           </div>
-          <img className="lg:w-1/2 w-full lg:h-auto lg:px-6 h-auto object-cover object-top rounded" src={operative.image} />
+          {operative ? (
+            <img src={require(`${operative.image}`)} className="lg:w-1/2 w-full lg:h-auto lg:px-6 h-auto object-cover object-top rounded" />
+            ) : null}
+            
         </div>
       </div>
     </section>
+  <Footer />
   </>);
 }

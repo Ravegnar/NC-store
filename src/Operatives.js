@@ -3,6 +3,7 @@ import useFetch from "./useFetch.js";
 import Loader from "./Loader.js";
 import Operative from "./Operative.js";
 import StoreNavigation from "./StoreNavigation.js";
+import Footer from "./Footer.js";
 
 export default function Operatives(props) {
   const [operatives, setOperatives] = useState([]);
@@ -11,6 +12,10 @@ export default function Operatives(props) {
   );
 
   let saver = []
+  
+  useEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [])
   
   useEffect(() => {
       get("NCO.json").then(data => {
@@ -42,5 +47,6 @@ export default function Operatives(props) {
         </div>
       </div>
     </div>
+    <Footer />
   </>);
 }

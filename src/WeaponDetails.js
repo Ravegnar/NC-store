@@ -5,6 +5,7 @@ import WeaponDetailGear from "./WeaponDetailGear.js";
 import WeaponDetailStats from "./WeaponDetailStats.js";
 import useFetch from "./useFetch.js";
 import Button from "./Button.js";
+import Footer from "./Footer.js";
 
 export default function WeaponDetails(props) {
   const [weapon, setWeapon] = useState({});
@@ -15,6 +16,10 @@ export default function WeaponDetails(props) {
   );
 
   useEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [])
+  
+  useEffect(() => {
       get(`NCW/Primary/${params.id}.json`)
         .then((data) => {
             setWeapon(data);
@@ -23,7 +28,7 @@ export default function WeaponDetails(props) {
       }, []);
       const tabClasses = "flex-grow sm:w-1/3 text-white border-b-2 border-gray-300 py-2 text-lg px-1"
 
-  return (<>
+return (<>
     <section className="text-white body-font overflow-hidden">
       <div className="container px-5 py-10 lg:pt-16 mx-auto">
         <div className="lg:w-4/5 justify-center lg:h-1/2 mx-auto flex flex-wrap">
@@ -33,17 +38,17 @@ export default function WeaponDetails(props) {
             <div className="flex text-center mb-4">
               <NavLink
                 className={(navData) => navData.isActive ? `${tabClasses}  text-indigo-500 border-b-2 border-indigo-500` : `${tabClasses}` }
-                to={`/store/NSW/weapons/${weapon.id}`} end>
+                to={`/NC-store/store/NSW/weapons/${weapon.id}`} end>
                   Info
               </NavLink>
               <NavLink
                 className={(navData) => navData.isActive ? `${tabClasses}  text-indigo-500 border-b-2 border-indigo-500` : `${tabClasses}` }
-                to={`/store/NSW/weapons/${weapon.id}/gear`}>
+                to={`/NC-store/store/NSW/weapons/${weapon.id}/gear`}>
                   Weapons
               </NavLink>
               <NavLink
                 className={(navData) => navData.isActive ? `${tabClasses}  text-indigo-500 border-b-2 border-indigo-500` : `${tabClasses}` }
-                to={`/store/NSW/weapons/${weapon.id}/stats`}>
+                to={`/NC-store/store/NSW/weapons/${weapon.id}/stats`}>
                   Gear
               </NavLink>
             </div>
@@ -73,10 +78,11 @@ export default function WeaponDetails(props) {
               </button>
             </div>
           </div>
-          <img className="lg:w-5/12 w-full lg:h-auto lg:px-6 h-auto object-contain object-center kundovina rounded" src={weapon.image} />
+          <img className="lg:w-5/12 w-full lg:h-auto lg:px-6 h-auto object-contain object-center kundovina rounded" src={require('./O/NCW/AR100.png')} />
         </div>
       </div>
     </section>
+    <Footer />
   </>);
 }
     

@@ -7,16 +7,16 @@ export default function StoreNavigation(props) {
       <div className=" px-1 mx-auto flex-row flex-wrap items-center">
           <ul className="flex flex-row justify-center list-none sm:ml-auto">
             <li>
-              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/store/NSO" end>Operatives</NavLink>
+              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/NC-store/store/NSO" end>Operatives</NavLink>
             </li>
             <li>
-              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/store/NSW/weapons">Weapons</NavLink>
+              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/NC-store/store/NSW/weapons">Weapons</NavLink>
             </li>
             <li>
-              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/store/NSW/tools">Tools</NavLink>
+              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/NC-store/store/NSW/tools">Tools</NavLink>
             </li>
             <li>
-              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/store/NSW/equipment">Equipments</NavLink>
+              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/NC-store/store/NSW/equipment">Equipments</NavLink>
             </li>
           </ul>
       </div>

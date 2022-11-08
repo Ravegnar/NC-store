@@ -1,8 +1,12 @@
-import {Link, Routes, Route} from "react-router-dom";
-
-import Button from "./Button.js";
+import {Link} from "react-router-dom";
+import Footer from "./Footer.js";
+import {useEffect} from "react";
 
 export default function Store(props) {
+
+  useEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [])
 
   return (<>
       <section className="text-white body-font py-9">
@@ -14,13 +18,13 @@ export default function Store(props) {
             </h1>
             <p className="mb-5 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag.<br /> Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
             <div className="flex justify-center">
-              <Link to="/store/NSO">
+              <Link to="/NC-store/store/NSO">
                 <button 
                   className="inline-flex text-white bg-orange-500 border-0 py-2 px-6 mx-2 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                     Button
                 </button>
               </Link>
-              <Link to="/store/NSO">
+              <Link to="/NC-store/store/NSO">
                 <button 
                   className="inline-flex text-white bg-orange-500 border-0 py-2 px-6 mx-2 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                     LEARN MORE
@@ -42,7 +46,7 @@ export default function Store(props) {
               to this rule are the pistols and rocket launchers, as these weapons have an emphasis on power over all else. 
             </p>
             <div className="flex justify-center">
-              <Link to="/store/NSW/">
+              <Link to="/NC-store/store/NSW/">
                 <button 
                   className="inline-flex text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                     Button
@@ -53,5 +57,6 @@ export default function Store(props) {
         </div>
         <div className="bg-line" />
       </section>
+      <Footer />
   </>);
 }

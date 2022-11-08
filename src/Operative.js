@@ -7,14 +7,14 @@ export default function Operative(props) {
     (product) => product.id === operative.id
   );
   const quantity = productFromCart ? productFromCart.quantity : 0;
-  const pathname = `/store/NSO/${operative.id}`
-  
-  return (<>
+  const pathname = `/NC-store/store/NSO/${operative.id}`
+
+return (<>
     <div className="p-1 pb-8 bg-slate-800">
-      <Link to={`/store/NSO/${operative.id}`} >
+      <Link to={`/NC-store/store/NSO/${operative.id}`} >
         <div className="w-full overflow-hidden rounded-lg p-6">
           <img
-            src={operative.image}
+            src={require("" + operative.image)}
             alt={operative.name}
             width="50"
             height="50"
@@ -29,7 +29,7 @@ export default function Operative(props) {
         )}
       <div className=" text-center">
         <div className="flex items-baseline relative justify-end text-center">
-          <a href={`/store/NSW/weapons/${operative.id}`} className="mt-4 text-2xl mx-auto hover:text-orange-500 text-center font-bold text-cyan-800">{operative.name}</a>
+          <Link to={`/NC-store/store/NSO/${operative.id}`} className="mt-4 text-2xl mx-auto hover:text-orange-500 text-center font-bold text-cyan-800">{operative.name}</Link>
           {quantity > 0 && (
             <Button outline onClick={() => props.onProductDelete(operative.id)}
               className="product-delete absolute m-2">

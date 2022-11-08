@@ -1,13 +1,12 @@
 import './index.css';
-import { useState, useEffect } from "react";
+import {useLayoutEffect, useState, useEffect} from "react";
 import {createRoot} from "react-dom/client";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Routes, Route, BrowserRouter, useLocation} from 'react-router-dom';
 import Navbar from "./Navbar.js";
 import Home from "./Home.js";
 import About from "./About.js";
 import Checkout from "./Checkout.js";
 import Store from "./Store.js";
-import ProductDetails from "./ProductDetails.js";
 import Cart from "./Cart.js";
 import Operatives from "./Operatives.js";
 import OperativeDetails from "./OperativeDetails.js";
@@ -25,6 +24,14 @@ function App() {
     }
     return savedCart;
   });
+
+//  const Wrapper = ({children}) => {
+//    const location = useLocation();
+//    useLayoutEffect(() => {
+//      document.documentElement.scrollTo(0, 0);
+//    }, [location.pathname]);
+//    return children
+//  } 
 
   useEffect(() => {
     if (cart) {
@@ -72,8 +79,8 @@ function App() {
 
   return (<>
           <BrowserRouter>
-            <section className="bg-gray-900 max-h-screen overflow-y-scroll snap snap-y snap-mandatory scrollbar-hide scroll-smooth">
             <Navbar cart={cart} onOpenCart={handleOpenCart} />
+            <section className="bg-slate-900 min-h-[93vh] scrollbar-hide ">
             <Cart
               onOpenCart={handleOpenCart}
               onProductDelete={handleProductDelete}
@@ -82,20 +89,20 @@ function App() {
             />
               <Routes>
                 <Route
-                  path="/"
+                  path="/NC-store/"
                   element={<Home />}
                 />
                 <Route
-                  path="/about"
+                  path="/NC-store/about"
                   element={<About />}
                 />
                 <Route
-                  path="store"
+                  path="NC-store/store"
                   element={<Store
                   />}
                 />
                 <Route 
-                  path="/store/NSO"
+                  path="/NC-store/store/NSO"
                   element={<Operatives 
                     cart={cart}
                     onProductAdd={handleProductAdd}
@@ -103,11 +110,11 @@ function App() {
                   />}
                 />
                 <Route
-                  path="/store/NSO/:id/*"
+                  path="/NC-store/store/NSO/:id/*"
                   element={<OperativeDetails onProductAdd={handleProductAdd} />}
                 />
                 <Route 
-                  path="/store/NSW/*"
+                  path="/NC-store/store/NSW/*"
                   element={<InfantryGear 
                     cart={cart}
                     onProductAdd={handleProductAdd}
@@ -115,15 +122,14 @@ function App() {
                   />}
                 />
                 <Route
-                  path="/store/NSW/weapons/:id/*"
+                  path="/NC-store/store/NSW/weapons/:id/*"
                   element={<WeaponDetails onProductAdd={handleProductAdd} />}
                 />
                 <Route
-                  path="/checkout"
+                  path="/NC-store/checkout"
                   element={<Checkout cart={cart} onProductDelete={handleProductDelete} />}
                 />
               </Routes>
-              
             </section>
         </BrowserRouter>
   </>);

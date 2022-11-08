@@ -586,9 +586,9 @@ input:focus {
 }
 
 .about {
-  background-image: url('http://ravengar.wz.cz/Images/NS/SC5S.jpg');
+  background-image: url('O/SC5S.jpg');
   background-position: 50% 0%;
-  height: 92vh;
+  background-size: cover;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -599,4 +599,22 @@ input:focus {
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+.home-one {
+  background-image: url('O/NS-tech1.jpg');
+  background-size: cover;
+  background-position: 50% 0%;
+}
+
+.home-two {
+  background-image: url('O/Squad.jpg');
+  background-size: cover;
+  background-position: 83% 15%;
+}
+
+.home-three {
+  background-image: url('O/NS-tech4.jpg');
+  background-size: cover;
+  background-position: 50% 0%;
 }
