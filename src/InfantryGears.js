@@ -4,23 +4,20 @@ import {useEffect} from "react";
 const callouts = [
   {
     name: 'Weapons',
-    description: 'Work from home accessories',
+    description: 'Text',
     imageSrc: 'http://ravengar.wz.cz/Images/NS/Weapon.png',
-    imageAlt: 'Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.',
     href: "/NC-store/store/NSW/weapons",
   },
   {
     name: 'Tools',
-    description: 'Journals and note-taking',
+    description: 'Text',
     imageSrc: 'http://ravengar.wz.cz/Images/NS/Tool.png',
-    imageAlt: 'Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.',
     href: "/NC-store/store/NSW/tools",
   },
   {
     name: 'Equipment',
-    description: 'Daily commute essentials',
+    description: 'Text',
     imageSrc: 'http://ravengar.wz.cz/Images/NS/Equip.png',
-    imageAlt: 'Collection of four insulated travel bottles on wooden shelf.',
     href: "/NC-store/store/NSW/equipment",
   },
 ]
@@ -31,6 +28,8 @@ export default function InfantryGears() {
   }, [])
 
   return (<>
+        <h1 className="text-white text-5xl">It is being worked on</h1>
+
     <div className="bg-NSW w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-24">
@@ -42,7 +41,6 @@ export default function InfantryGears() {
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                   <img
                     src={callout.imageSrc}
-                    alt={callout.imageAlt}
                     className="h-full w-full object-cover object-center"
                   />
                 </div>

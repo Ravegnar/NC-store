@@ -10,6 +10,6 @@ export default function Gears() {
 
   return (<>
     <StoreNavigation />
-    <h1>Tools</h1>
+    <h1 className="text-white text-5xl">It is being worked on</h1>
   </>)
 }
