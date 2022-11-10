@@ -15,7 +15,7 @@ export default function About() {
       <section className="relative flex justify-center overflow-x-hidden">
         <div className="absolute w-full h-[65vh] bg-slate-600 top-0 object-cover about">
         </div>
-        <div className="relative flex justify-center h-full mt-[35vh] mx-[5vw] sm:mx-[15vw] p-0 w-full bg-slate-800">
+        <div className="relative flex justify-center h-full mt-[35vh] mx-[5vw] sm:mx-[15vw] p-0 w-full bg-slate-800 shadow-lg shadow-black mb-10">
           <div className="">
             <h1 className="text-white text-4xl sm:text-7xl text-center font-bold mb-10 px-6 sm:px-20 pt-6 sm:pt-20">
               Nanite Systems

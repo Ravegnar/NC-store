@@ -6,9 +6,9 @@ export default function Footer() {
                     <div className="w-full text-center lg:w-2/5">
                         <div className="px-6">
                             <div>
-                                <a href="#" className="text-xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Brand</a>
+                                <a href="#" className="text-xl font-bold text-white hover:text-gray-300">Brand</a>
                             </div>
-                            <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">
+                            <p className="max-w-sm text-center mt-2 mx-auto text-gray-400">
                                 Join 31,000+ other and never miss out on new tips, tutorials, and more.
                             </p>
                         </div>
@@ -16,27 +16,27 @@ export default function Footer() {
                     <div className="mt-6 lg:mt-0 lg:flex-1">
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 text-center">
                             <div>
-                                <h3 className="text-gray-700 uppercase dark:text-white">About</h3>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Company</a>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Careers</a>
+                                <h3 className="uppercase text-white">About</h3>
+                                <a href="#" className="block mt-2 text-sm text-gray-400 hover:underline">Company</a>
+                                <a href="#" className="block mt-2 text-sm text-gray-400 hover:underline">Careers</a>
                             </div>
                             <div>
-                                <h3 className="text-gray-700 uppercase dark:text-white">Products</h3>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Mega cloud</a>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Aperion UI</a>
+                                <h3 className="uppercase text-white">Products</h3>
+                                <a href="#" className="block mt-2 text-sm text-gray-400 hover:underline">Mega cloud</a>
+                                <a href="#" className="block mt-2 text-sm text-gray-400 hover:underline">Aperion UI</a>
                             </div>
                             <div>
-                                <h3 className="text-gray-700 uppercase dark:text-white">Contact</h3>
-                                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">+1 526 654 8965</span>
-                                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">example@email.com</span>
+                                <h3 className="uppercase text-white">Contact</h3>
+                                <span className="block mt-2 text-sm text-gray-400 hover:underline">+1 526 654 8965</span>
+                                <span className="block mt-2 text-sm text-gray-400 hover:underline">example@email.com</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr className="h-px my-6 bg-gray-200 border-none dark:bg-gray-700" />
+                <hr className="h-px my-6 border-none bg-gray-700" />
                 <div className="flex mt-6 justify-center">
                     <a href="#"
-                        className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                        className="mx-2 transition-colors duration-300 text-gray-300 hover:text-blue-400"
                         aria-label="Reddit">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -46,7 +46,7 @@ export default function Footer() {
                     </a>
                     
                     <a href="#"
-                        className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                        className="mx-2 transition-colors duration-300 text-gray-300 hover:text-blue-400"
                         aria-label="Facebook">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -56,7 +56,7 @@ export default function Footer() {
                     </a>
                     
                     <a href="#"
-                        className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                        className="mx-2 transition-colors duration-300 text-gray-300 hover:text-blue-400"
                         aria-label="Github">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -66,7 +66,7 @@ export default function Footer() {
                     </a>
                 </div>
                 <div>
-                    <p className="text-center mt-6 text-gray-500 dark:text-gray-400">© Nanite Systems 2022 - Student project</p>
+                    <p className="text-center mt-6 text-gray-400">© Nanite Systems 2022 - Student project</p>
                 </div>
             </div>
         </footer>

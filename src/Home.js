@@ -74,8 +74,8 @@ export default function Home() {
         </div>
         <div className="container mb-2 h-4/5 w-4/5 lg:w-2/5 mx-0 lg:mx-20 flex items-end justify-center sm:justify-start">
           <div className="text-center text-white">
-            <div className="block p-4 sm:p-8 xl:p-12 mx-0 xl:mr-16 shadow-lg backdrop-blur-lg border-4 lg:bg-transparent " >
-              <h1 className="text-2xl md:text-5xl xl:text-7xl font-bold tracking-tight mb-4 sm:mb-12">Operatives are better <br /><span className="text-slate-500">than human soldiers </span></h1>
+            <div className="block p-4 sm:p-8 xl:p-10 mx-0 xl:mr-14 shadow-lg backdrop-blur-lg border-4 lg:bg-transparent " >
+              <h1 className="text-2xl md:text-5xl xl:text-7xl font-bold tracking-tight mb-4 sm:mb-12">Operatives are better<br /><span className="text-slate-500">than human soldiers </span></h1>
               <Link className="inline-block m-2 min-w-[8rem] text-white border-4 py-2 px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-110"
                 to="/NC-store/store/NSO"  
               >
