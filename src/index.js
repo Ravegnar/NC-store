@@ -13,7 +13,6 @@ import OperativeDetails from "./OperativeDetails.js";
 import InfantryGears from "./InfantryGears.js";
 import Products from "./Products.js";
 import ProductDetails from "./ProductDetails.js";
-import Equipments from "./Equipments.js";
 
 function App() {
   const [open, setOpen] = useState(false)
@@ -145,6 +144,11 @@ function App() {
                 <Route 
                   path="/NC-store/store/NSW/equipments"
                   element={<Products
+                    category="Tools"
+                    type="tools"
+                    cart={cart}
+                    onProductAdd={handleProductAdd}
+                    onProductDelete={handleProductDelete}
                     />
                   }
                 />
