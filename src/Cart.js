@@ -107,7 +107,7 @@ export default function Cart(props) {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-cyan-600">
                                       <h3 className='font-bold'>
-                                        <a href={product.path}>{product.name}</a>
+                                        <Link to={product.path}>{product.name}</Link>
                                       </h3>
                                       <p className="ml-4 text-white">${product.price.toLocaleString()}</p>
                                     </div>

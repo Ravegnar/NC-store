@@ -10,8 +10,10 @@ import Store from "./Store.js";
 import Cart from "./Cart.js";
 import Operatives from "./Operatives.js";
 import OperativeDetails from "./OperativeDetails.js";
-import InfantryGear from "./InfantryGear.js";
-import WeaponDetails from "./WeaponDetails.js";
+import InfantryGears from "./InfantryGears.js";
+import Products from "./Products.js";
+import ProductDetails from "./ProductDetails.js";
+import Equipments from "./Equipments.js";
 
 function App() {
   const [open, setOpen] = useState(false)
@@ -114,16 +116,45 @@ function App() {
                   element={<OperativeDetails onProductAdd={handleProductAdd} />}
                 />
                 <Route 
-                  path="/NC-store/store/NSW/*"
-                  element={<InfantryGear 
+                  path="/NC-store/store/NSW/"
+                  element={<InfantryGears 
+                  />}
+                />
+                <Route 
+                  path="/NC-store/store/NSW/weapons"
+                  element={<Products
+                    category="Primary"
+                    type="weapons"
                     cart={cart}
                     onProductAdd={handleProductAdd}
                     onProductDelete={handleProductDelete}
-                  />}
+                  />
+                }
+                />
+                <Route 
+                  path="//NC-store/store/NSW/tools"
+                  element={<Products
+                    category="Tools"
+                    type="tools"
+                    cart={cart}
+                    onProductAdd={handleProductAdd}
+                    onProductDelete={handleProductDelete}
+                  />
+                }
+                />
+                <Route 
+                  path="/NC-store/store/NSW/equipments"
+                  element={<Products
+                    />
+                  }
                 />
                 <Route
                   path="/NC-store/store/NSW/weapons/:id/*"
-                  element={<WeaponDetails onProductAdd={handleProductAdd} />}
+                  element={<ProductDetails category="Primary" type="weapons" onProductAdd={handleProductAdd} />}
+                />
+                <Route
+                  path="/NC-store/store/NSW/tools/:id/*"
+                  element={<ProductDetails category="Tools" type="tools" onProductAdd={handleProductAdd} />}
                 />
                 <Route
                   path="/NC-store/checkout"

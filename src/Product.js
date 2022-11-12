@@ -2,51 +2,46 @@ import { Link } from "react-router-dom";
 import Button from "./Button.js";
 
 export default function Product(props) {
-  const { details } = props;
-
-  const productFromCart = props.cart.find(
+  const {type, cart, details, onProductDelete, onProductAdd} = props;
+  const productFromCart = cart.find(
     (product) => product.id === details.id
   );
   const quantity = productFromCart ? productFromCart.quantity : 0;
+  const pathname = `/NC-store/store/NSW/${type}/${details.id}`
 
-  return (
-    <div className="product">
-      <div className="product-image-container">
-        <Link to={`/products/${details.id}`}>
+  return (<>
+    <div>
+      <Link to={pathname} >
+        <div className="w-full overflow-hidden rounded-lg bg-slate-800 p-6">
           <img
-            src={details.image}
+            src={require("" + details.image)}
+            alt={details.name}
             width="200"
             height="100"
-            className="product-image"
-            alt={details.name}
-          />
-        </Link>
-        {quantity > 0 && (
-          <div className="product-quantity-container">
-            <div className="product-quantity">{quantity}</div>
+            className="h-full w-full object-cover object-center group-hover:opacity-75"
+            />
+        </div>
+      </Link>
+      {quantity > 0 && (
+          <div className="relative">
+            <div className=" text-white font-bold absolute m-2">Qty {quantity}</div>
           </div>
         )}
-      </div>
-      <div className="product-info">
-        <h3>{details.name}</h3>
-        <p>{details.type}</p>
-      </div>
-      <div className="product-checkout">
-        <div>
+      <div className=" text-center">
+        <div className="flex items-baseline relative justify-end text-center">
+          <Link to={pathname} className="mt-4 text-2xl mx-auto hover:text-orange-500 text-center font-bold text-cyan-800">{details.name}</Link>
           {quantity > 0 && (
-            <Button
-              outline
-              onClick={() => props.onProductDelete(details.id)}
-              className="product-delete"
-            >
-              x
+            <Button outline onClick={() => onProductDelete(details.id)}
+              className="product-delete absolute m-2">
+              X
             </Button>
           )}
         </div>
-        <Button outline onClick={() => props.onProductAdd(details)}>
+        <p className="mb-3 text-sm text-white">{details.type}</p>
+        <Button outline onClick={() => onProductAdd({...details, path: pathname})}>
           ${details.price}
         </Button>
       </div>
     </div>
-  );
+  </>)
 }

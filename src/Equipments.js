@@ -2,7 +2,7 @@ import StoreNavigation from "./StoreNavigation.js";
 import {useEffect} from "react";
 
 
-export default function Gears() {
+export default function Equipments() {
 
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);

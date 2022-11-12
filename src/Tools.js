@@ -1,5 +1,6 @@
-import StoreNavigation from "./StoreNavigation.js";
 import {useEffect} from "react";
+import StoreNavigation from "./StoreNavigation.js";
+import Products from "./Products.js";
 
 export default function Tools() {
   useEffect(() => {

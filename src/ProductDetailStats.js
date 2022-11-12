@@ -1,4 +1,4 @@
-export default function ProductDetailInfo(props) {
+export default function ProductDetailStats(props) {
   const {product} = props;
   return (
     <>

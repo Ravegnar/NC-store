@@ -18,7 +18,7 @@ const callouts = [
     name: 'Equipment',
     description: 'Text',
     imageSrc: 'http://ravengar.wz.cz/Images/NS/Equip.png',
-    href: "/NC-store/store/NSW/equipment",
+    href: "/NC-store/store/NSW/equipments",
   },
 ]
 
