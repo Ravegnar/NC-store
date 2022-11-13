@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/NC-store/static/css/main.2a1ca168.css",
-    "main.js": "/NC-store/static/js/main.d933e2cf.js",
+    "main.css": "/NC-store/static/css/main.6edfcdae.css",
+    "main.js": "/NC-store/static/js/main.3064ee41.js",
     "static/media/NSO.mp4": "/NC-store/static/media/NSO.ce97d10b8321a4a6c0f5.mp4",
     "static/media/ME.gif": "/NC-store/static/media/ME.c64b90abe685a6100416.gif",
     "static/media/HE.gif": "/NC-store/static/media/HE.75f0974ad7ebd7506dd3.gif",
@@ -15,6 +15,7 @@
     "static/media/gr-ku.jpg": "/NC-store/static/media/gr-ku.050b9367912dd307f4f9.jpg",
     "static/media/Envir1.jpg": "/NC-store/static/media/Envir1.693ae1d3441579c828d4.jpg",
     "static/media/About3.jpg": "/NC-store/static/media/About3.d367e323594de931bfac.jpg",
+    "static/media/Inda.jpg": "/NC-store/static/media/Inda.eba6541d0b0df879cfae.jpg",
     "static/media/Slide3.jpg": "/NC-store/static/media/Slide3.fcb18df3dfd12bdf1286.jpg",
     "static/media/Store.jpg": "/NC-store/static/media/Store.e3f9a3a032bbf85ef9d2.jpg",
     "static/media/NS-tech1.jpg": "/NC-store/static/media/NS-tech1.bd033d0e3e8423004e4a.jpg",
@@ -24,6 +25,7 @@
     "static/media/SC5S.jpg": "/NC-store/static/media/SC5S.bbee96e33fd8fb09e5f7.jpg",
     "static/media/Slide1.jpg": "/NC-store/static/media/Slide1.203705691d535185e78b.jpg",
     "static/media/Slide2.jpg": "/NC-store/static/media/Slide2.41c36f85f596301691d7.jpg",
+    "static/media/TOOL.jpg": "/NC-store/static/media/TOOL.030b6aeb9563f0d3d5b4.jpg",
     "static/media/Heavy.jpg": "/NC-store/static/media/Heavy.42e763ecd8533de593e6.jpg",
     "static/media/Engin.jpg": "/NC-store/static/media/Engin.9ec776ae09ce5af8c9f2.jpg",
     "static/media/Medic.jpg": "/NC-store/static/media/Medic.80cf84b1aeb1a8d633dc.jpg",
@@ -31,6 +33,8 @@
     "static/media/Infil.jpg": "/NC-store/static/media/Infil.2bc134001880fa973681.jpg",
     "static/media/Defec.jpg": "/NC-store/static/media/Defec.e95fd1cd02fe85dfd428.jpg",
     "static/media/pattern2.png": "/NC-store/static/media/pattern2.e7549e24a92b22263ea1.png",
+    "static/media/Weap.jpg": "/NC-store/static/media/Weap.8e220c59b4dbb0250f9c.jpg",
+    "static/media/EQ.jpg": "/NC-store/static/media/EQ.26f70037b5efe7e34d99.jpg",
     "static/media/CB-100.png": "/NC-store/static/media/CB-100.dc88ab3e30fe3a56ef46.png",
     "static/media/CB100.png": "/NC-store/static/media/CB100.dc88ab3e30fe3a56ef46.png",
     "static/media/Rocklet_Rifle.png": "/NC-store/static/media/Rocklet_Rifle.fe168dd7b7225ecb26f7.png",
@@ -40,11 +44,11 @@
     "static/media/AR-100.png": "/NC-store/static/media/AR-100.c3d43924c0e5c2666e4d.png",
     "static/media/AR100.png": "/NC-store/static/media/AR100.c3d43924c0e5c2666e4d.png",
     "index.html": "/NC-store/index.html",
-    "main.2a1ca168.css.map": "/NC-store/static/css/main.2a1ca168.css.map",
-    "main.d933e2cf.js.map": "/NC-store/static/js/main.d933e2cf.js.map"
+    "main.6edfcdae.css.map": "/NC-store/static/css/main.6edfcdae.css.map",
+    "main.3064ee41.js.map": "/NC-store/static/js/main.3064ee41.js.map"
   },
   "entrypoints": [
-    "static/css/main.2a1ca168.css",
-    "static/js/main.d933e2cf.js"
+    "static/css/main.6edfcdae.css",
+    "static/js/main.3064ee41.js"
   ]
 }
