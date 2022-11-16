@@ -1,14 +1,14 @@
 import {Link} from "react-router-dom";
+import {useState, useEffect} from "react";
+import Footer from "./Footer.js";
 import NSO from './O/NSO.mp4'
 import slide1 from './O/Slide1.jpg'
 import slide2 from './O/Slide2.jpg'
 import slide3 from './O/Slide3.jpg'
-import {useState, useEffect} from "react";
-import Footer from "./Footer.js";
 
 const slider = {
   slider1: [slide1, "Weapons", "weapons"],
-  slider2: [slide2, "Equipments", "equipment"],
+  slider2: [slide2, "Equipment", "equipment"],
   slider3: [slide3, "Tools", "tools"]
 }
 
@@ -91,17 +91,25 @@ export default function Home() {
         </div>
       </section>
       <section className="relative w-full h-[93vh] flex flex-col items-center justify-center bg-emerald-800 snap-end snap-normal home-three backdrop">
-        <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-slate-900 opacity-70">
+        <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-slate-900 opacity-40">
         </div>
         <h2 className="relative text-center text-white font-bold text-2xl sm:text-4xl md:text-6xl mb-8 sm:p-4 mx-9">
-          The best Weapons, Tools & Equipments
+          The best Weapons, Tools & Equipment
         </h2>
         <div className="container relative overflow-hidden w-full sm:w-4/5 h-2/5 sm:h-3/5 lg:h-4/6 mx-auto border-8 border-slate-900">
             <img className="w-full h-full object-cover object-center" src={slide[0]} alt="" />
             <div className="absolute px-5 flex h-full w-full top-0 left-0">
                 <div className="my-auto w-full flex justify-between text-slate-300 font-bold">
-                    <button onClick={prev} className="p-3">Prev</button>
-                    <button onClick={next} className="p-3">Next</button>
+                    <button onClick={prev} className="p-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 text-white hover:scale-125">
+                        <path fillRule="evenodd" d="M13.28 3.97a.75.75 0 010 1.06L6.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0zm6 0a.75.75 0 010 1.06L12.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                    <button onClick={next} className="p-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 text-white hover:scale-125">
+                        <path fillRule="evenodd" d="M4.72 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L11.69 12 4.72 5.03a.75.75 0 010-1.06zm6 0a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06L17.69 12l-6.97-6.97a.75.75 0 010-1.06z" clipRule="evenodd" />
+                      </svg>
+                    </button>
                 </div>
             </div>
             <div className="absolute flex flex-col bottom-0 w-full">
@@ -118,6 +126,5 @@ export default function Home() {
       </section>
     <Footer />
   </section>
-
   </>)
 }

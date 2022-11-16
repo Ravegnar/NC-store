@@ -1,7 +1,7 @@
 import './index.css';
-import {useLayoutEffect, useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import {createRoot} from "react-dom/client";
-import {Routes, Route, BrowserRouter, useLocation} from 'react-router-dom';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import Navbar from "./Navbar.js";
 import Home from "./Home.js";
 import About from "./About.js";
@@ -10,7 +10,6 @@ import Store from "./Store.js";
 import Cart from "./Cart.js";
 import Operatives from "./Operatives.js";
 import OperativeDetails from "./OperativeDetails.js";
-import InfantryGears from "./InfantryGears.js";
 import Products from "./Products.js";
 import ProductDetails from "./ProductDetails.js";
 
@@ -25,14 +24,6 @@ function App() {
     }
     return savedCart;
   });
-
-//  const Wrapper = ({children}) => {
-//    const location = useLocation();
-//    useLayoutEffect(() => {
-//      document.documentElement.scrollTo(0, 0);
-//    }, [location.pathname]);
-//    return children
-//  } 
 
   useEffect(() => {
     if (cart) {
@@ -115,11 +106,6 @@ function App() {
                   element={<OperativeDetails onProductAdd={handleProductAdd} />}
                 />
                 <Route 
-                  path="/NC-store/store/NSW/"
-                  element={<InfantryGears 
-                  />}
-                />
-                <Route 
                   path="/NC-store/store/NSW/weapons"
                   element={<Products
                     category="Primary"
@@ -142,10 +128,10 @@ function App() {
                 }
                 />
                 <Route 
-                  path="/NC-store/store/NSW/equipments"
+                  path="/NC-store/store/NSW/equipment"
                   element={<Products
-                    category="Tools"
-                    type="tools"
+                    category="Equipment"
+                    type="equipment"
                     cart={cart}
                     onProductAdd={handleProductAdd}
                     onProductDelete={handleProductDelete}
@@ -159,6 +145,10 @@ function App() {
                 <Route
                   path="/NC-store/store/NSW/tools/:id/*"
                   element={<ProductDetails category="Tools" type="tools" onProductAdd={handleProductAdd} />}
+                />
+                <Route
+                  path="/NC-store/store/NSW/equipment/:id/*"
+                  element={<ProductDetails category="Equipment" type="equipment" onProductAdd={handleProductAdd} />}
                 />
                 <Route
                   path="/NC-store/checkout"

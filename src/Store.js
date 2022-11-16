@@ -1,62 +1,58 @@
 import {Link} from "react-router-dom";
 import Footer from "./Footer.js";
 import {useEffect} from "react";
+import img1 from "./O/NSO/Inda.jpg";
+import img2 from "./O/NSW/Weap.jpg";
+import img3 from "./O/NSW/TOOL.jpg";
+import img4 from "./O/NSW/EQ.jpg";
 
 export default function Store(props) {
-
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, [])
 
   return (<>
-      <section className="text-white body-font py-9">
-      <h1 className="text-white text-5xl">It is being worked on</h1>
-
-        <div className="bg-line" />
-        <div className="w-full mx-auto flex px-5 pt-52 pb-5 justify-center items-center bg-NSO">
-          <div className="flex flex-col items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-              Nanite Systems Operatives
-            </h1>
-            <div className="flex justify-center">
-              <Link to="/NC-store/store/NSO">
-                <button 
-                  className="inline-flex text-white bg-orange-500 border-0 py-2 px-6 mx-2 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                    Buy now
-                </button>
-              </Link>
-              <Link to="/NC-store/store/NSO">
-                <button 
-                  className="inline-flex text-white bg-orange-500 border-0 py-2 px-6 mx-2 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                    LEARN MORE
-                </button>
-              </Link>
+      <section className="text-white py-2">
+        <div className="flex w-full h-[59vh] sm:h-[50vh] overflow-hidden justify-center bg-slate-900">
+          <Link className="w-full sm:w-8/12 overflow-hidden relative h-full bg-slate-800 hover:sm:border border-slate-300 sm:opacity-70 hover:opacity-95" to="/NC-store/store/NSO">
+            <img className="w-full h-full object-cover object-top hover:scale-110" src={img1} />
+            <div className="absolute w-full flex flex-col bottom-0">
+              <h2 className="bottom-0 mx-auto mb-2 sm:mb-10 m-2 text-white uppercase text-3xl font-bold">
+                  Operatives
+              </h2>
             </div>
+          </Link>
+        </div>
+        <div className="flex w-full h-[25vh] sm:h-[37vh] justify-center bg-slate-900">
+          <div className="flex w-full sm:w-8/12 h-full">
+
+          <Link className="flex sm:m-2 sm:mt-4 sm:ml-0 relative w-1/3 h-full overflow-hidden bg-slate-600 hover:sm:border border-slate-300 sm:opacity-70 hover:opacity-95" to="/NC-store/store/NSW/weapons">
+              <img className="w-full h-full object-cover object-center hover:scale-110" src={img2} />
+              <div className="absolute w-full flex flex-col bottom-0">
+                <h2 className="bottom-0 mx-auto mb-2 sm:mb-10 m-2 text-white uppercase sm:text-3xl font-bold">
+                    Weapons
+                </h2>
+              </div>
+          </Link>
+          <Link className="flex sm:m-2 sm:mt-4 relative w-1/3 h-full overflow-hidden bg-slate-600 hover:sm:border border-slate-300 sm:opacity-70 hover:opacity-95" to="/NC-store/store/NSW/tools">
+              <img className="w-full h-full object-cover object-center hover:scale-110" src={img3} />
+              <div className="absolute w-full flex flex-col bottom-0">
+                <h2 className="bottom-0 mx-auto mb-2 sm:mb-10 m-2 text-white uppercase sm:text-3xl font-bold">
+                    Tools
+                </h2>
+              </div>
+          </Link>
+          <Link className="flex sm:m-2 sm:mr-0 sm:mt-4 relative w-1/3 h-full overflow-hidden bg-slate-600 hover:sm:border border-slate-300 sm:opacity-70 hover:opacity-95" to="/NC-store/store/NSW/equipment">
+              <img className="w-full h-full object-cover object-center hover:scale-110" src={img4} />
+              <div className="absolute w-full flex flex-col bottom-0">
+                <h2 className="bottom-0 mx-auto mb-2 sm:mb-10 m-2 text-white uppercase sm:text-3xl font-bold">
+                    Equipment
+                </h2>
+              </div>
+          </Link>
+
           </div>
         </div>
-        <div className="bg-line" />
-
-        <div className="w-full mx-auto flex px-5 pt-48 pb-5 justify-center items-center bg-NSW">
-          <div className="flex flex-col items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-              Nanite Systems Weapons & Gear
-            </h1>
-            <p className="mb-5 leading-relaxed">
-              NS weapons have neutral color tones of tan, black, and white. The designs are a combination of every empires' 
-              characteristics, serving as a middle ground between all three factions in terms of performance. The exception 
-              to this rule are the pistols and rocket launchers, as these weapons have an emphasis on power over all else. 
-            </p>
-            <div className="flex justify-center">
-              <Link to="/NC-store/store/NSW/">
-                <button 
-                  className="inline-flex text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                    Preview
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="bg-line" />
       </section>
       <Footer />
   </>);

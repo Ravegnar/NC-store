@@ -3,6 +3,7 @@ import useFetch from "./useFetch.js";
 import Loader from "./Loader.js";
 import Product from "./Product.js";
 import StoreNavigation from "./StoreNavigation.js";
+import Footer from "./Footer.js";
 
 export default function Products(props) {
   const [products, setProducts] = useState([]);
@@ -29,8 +30,8 @@ export default function Products(props) {
     <StoreNavigation />
     <div className="">
       <div className="mx-auto max-w-2xl px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h2 className="text-white text-3xl text-center font-bold py-5">Primary Weapons</h2>
-        <div className="grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 mx-12 md:mx-0 lg:mx-12">
+      <h2 className="text-white text-3xl text-center font-bold py-5">{props.category}</h2>
+        <div className="grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 mx-0 sm:mx-10 md:mx-0 lg:mx-12">
           {loading && <Loader />}
           {products.map(product => {
             return (
@@ -47,5 +48,6 @@ export default function Products(props) {
         </div>
       </div>
     </div>
+    <Footer />
   </>);
 }

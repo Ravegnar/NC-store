@@ -1,6 +1,7 @@
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
 import NS from './O/NS.png'
+import cartIcon from './O/Cart.png'
 
 export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function Navbar(props) {
 
   return (
     <nav className="flex sticky top-0 z-50 min-h-[7vh] flex-wrap items-center justify-between bg-slate-800 scrollbar-hide">
-      <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <div className="w-10/12 md:w-3/4 lg:w-2/3 px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between sm:w-auto sm:static sm:block sm:justify-start">
           <NavLink to="/NC-store/"
             className="text-lg font-bold leading-relaxed inline-block mr-4 whitespace-nowrap uppercase">
@@ -45,13 +46,13 @@ export default function Navbar(props) {
         >
           <ul className="flex flex-col sm:flex-row list-none sm:ml-auto items-center">
             <li className="nav-item">
-              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/NC-store/" end>Home</NavLink>
+              <NavLink className={(navData) => navData.isActive ? `${navLink} text-cyan-600` : `${navLink}` } to="/NC-store/" end>Home</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className={(navData) => navData.isActive ? `${navLink} active` : `${navLink}` } to="/NC-store/about">About us</NavLink>
+              <NavLink className={(navData) => navData.isActive ? `${navLink} text-cyan-600` : `${navLink}` } to="/NC-store/about">About us</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className={(navData) => navData.isActive ? `${navLink} md:pr-0 active` : `${navLink} md:pr-0` } to="/NC-store/store">Store</NavLink>
+              <NavLink className={(navData) => navData.isActive ? `${navLink} md:pr-0 text-cyan-600` : `${navLink} md:pr-0` } to="/NC-store/store">Store</NavLink>
             </li>
             
             <div className="flex relative items-center text-left dropdown">
@@ -63,16 +64,16 @@ export default function Navbar(props) {
                 <div className="absolute -right-12 sm:right-0 w-auto mt-3 p-2 origin-top-right bg-slate-700 border border-slate-800 divide-y divide-gray-100 rounded-md shadow-lg outline-none" aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
                   <ul className="flex flex-col justify-center items-end sm:ml-auto">
                     <li>
-                      <NavLink className={(navData) => navData.isActive ? `${navLinkDrop} active` : `${navLinkDrop}` } to="/NC-store/store/NSO" end>Operatives</NavLink>
+                      <NavLink className={(navData) => navData.isActive ? `${navLinkDrop} text-cyan-600` : `${navLinkDrop}` } to="/NC-store/store/NSO" end>Operatives</NavLink>
                     </li>
                     <li>
-                      <NavLink className={(navData) => navData.isActive ? `${navLinkDrop} active` : `${navLinkDrop}` } to="/NC-store/store/NSW/weapons">Weapons</NavLink>
+                      <NavLink className={(navData) => navData.isActive ? `${navLinkDrop} text-cyan-600` : `${navLinkDrop}` } to="/NC-store/store/NSW/weapons">Weapons</NavLink>
                     </li>
                     <li>
-                      <NavLink className={(navData) => navData.isActive ? `${navLinkDrop} active` : `${navLinkDrop}` } to="/NC-store/store/NSW/tools">Tools</NavLink>
+                      <NavLink className={(navData) => navData.isActive ? `${navLinkDrop} text-cyan-600` : `${navLinkDrop}` } to="/NC-store/store/NSW/tools">Tools</NavLink>
                     </li>
                     <li>
-                      <NavLink className={(navData) => navData.isActive ? `${navLinkDrop} active` : `${navLinkDrop}` } to="/NC-store/store/NSW/equipment">Equipments</NavLink>
+                      <NavLink className={(navData) => navData.isActive ? `${navLinkDrop} text-cyan-600` : `${navLinkDrop}` } to="/NC-store/store/NSW/equipment">Equipments</NavLink>
                     </li>
                   </ul>
                 </div>
@@ -81,7 +82,8 @@ export default function Navbar(props) {
 
             <li onClick={props.onOpenCart} className="cursor-pointer" >
               <a className={navLink}>
-                CART ({cartCount})
+                <img src={cartIcon} className="w-[30px] h-[24px]" />
+                ({cartCount})
               </a>
             </li>
           </ul>

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Button from "./Button.js";
 
 export default function Product(props) {
   const {type, cart, details, onProductDelete, onProductAdd} = props;
@@ -10,38 +9,50 @@ export default function Product(props) {
   const pathname = `/NC-store/store/NSW/${type}/${details.id}`
 
   return (<>
-    <div>
+    <div className="flex flex-col place-content-between bg-slate-800 border-0 border-white overflow-hidden p-6 min:w-[300px]">
       <Link to={pathname} >
-        <div className="w-full overflow-hidden rounded-lg bg-slate-800 p-6">
+        <div className="w-full h-48 overflow-hidden bg-slate-900 p-6 hover:p-2 hover:brightness-125 mb-6">
           <img
             src={require("" + details.image)}
             alt={details.name}
-            width="200"
-            height="100"
-            className="h-full w-full object-cover object-center group-hover:opacity-75"
+            className="h-full w-full object-contain object-center group-hover:opacity-75"
             />
         </div>
       </Link>
-      {quantity > 0 && (
-          <div className="relative">
-            <div className=" text-white font-bold absolute m-2">Qty {quantity}</div>
-          </div>
-        )}
-      <div className=" text-center">
-        <div className="flex items-baseline relative justify-end text-center">
-          <Link to={pathname} className="mt-4 text-2xl mx-auto hover:text-orange-500 text-center font-bold text-cyan-800">{details.name}</Link>
-          {quantity > 0 && (
-            <Button outline onClick={() => onProductDelete(details.id)}
-              className="product-delete absolute m-2">
-              X
-            </Button>
-          )}
+
+      <div className="flex-col">
+        <div className="flex w-full justify-between items-baseline px-1">
+          <Link to={pathname} className="text-cyan-700 hover:text-cyan-500 text-xl font-bold">
+            {details.name}
+          </Link>
+          <p className="text-white font-medium pl-2">
+            ${details.price}
+          </p>
         </div>
-        <p className="mb-3 text-sm text-white">{details.type}</p>
-        <Button outline onClick={() => onProductAdd({...details, path: pathname})}>
-          ${details.price}
-        </Button>
+        <div className="flex w-full justify-between items-center px-1">
+          <p className="text-slate-300">
+            {details.type}
+          </p>
+        </div>
+        <div className="flex w-full justify-between items-center px-1">
+
+        {quantity > 0 && (<>
+          <p className="text-white">
+            quantity {quantity}
+          </p>
+          <button className="text-cyan-700 hover:text-cyan-500 font-medium" onClick={() => onProductDelete(details.id)}>
+            remove
+          </button>
+          </>)}
+
+        </div>
       </div>
+        <div className="flex justify-center mt-auto">
+          <button className="inline-block min-w-[8rem] mt-4 text-white border-4 py-2 px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-110" onClick={() => onProductAdd({...details, path: pathname})}>
+            Add to cart
+          </button>
+        </div>
+
     </div>
   </>)
 }

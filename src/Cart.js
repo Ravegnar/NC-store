@@ -149,7 +149,7 @@ export default function Cart(props) {
                       <div className="mt-6">
                         <Link
                           to="/NC-store/checkout"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-cyan-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-700"
+                          className="flex items-center justify-center border border-transparent bg-cyan-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-700"
                           onClick={onOpenCart}
                         >
                           Checkout

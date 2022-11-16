@@ -162,7 +162,7 @@ export default function Checkout(props) {
                     <div className="validation-message text-red-700 my-2">{validation}
                     </div>
                     {cart.length > 0 && (
-                        <input type="submit" className="submit-button px-4 py-3 rounded-md bg-cyan-800 hover:bg-cyan-700 text-white focus:outline-none w-full text-xl font-semibold transition-colors" value={"Pay $" + totalPrice.toLocaleString()} />
+                        <input type="submit" className="submit-button px-4 py-3 bg-cyan-800 hover:bg-cyan-700 text-white focus:outline-none w-full text-xl font-semibold transition-colors" value={"Pay $" + totalPrice.toLocaleString()} />
                     )}
                 </form>
         </div>
@@ -231,7 +231,7 @@ export default function Checkout(props) {
                 {/*footer*/}
                 <div className="flex items-center justify-center p-6 rounded-b">
                   <a
-                    className="bg-cyan-700 text-white active:bg-cyan-800 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="bg-cyan-700 text-white active:bg-cyan-800 font-bold uppercase text-sm px-6 py-3 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowModal(false)}
                     href="/NC-store/"
