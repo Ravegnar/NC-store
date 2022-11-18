@@ -26,11 +26,11 @@ export default function Product(props) {
             {details.name}
           </Link>
           <p className="text-white font-medium pl-2">
-            ${details.price}
+            ${details.price.toLocaleString()}
           </p>
         </div>
         <div className="flex w-full justify-between items-center px-1">
-          <p className="text-slate-300">
+          <p className="text-slate-300 tracking-widest">
             {details.type}
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function Product(props) {
         </div>
       </div>
         <div className="flex justify-center mt-auto">
-          <button className="inline-block min-w-[8rem] mt-4 text-white border-4 py-2 px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-110" onClick={() => onProductAdd({...details, path: pathname})}>
+          <button className="inline-block w-full mt-4 text-white border-4 py-2 px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-110" onClick={() => onProductAdd({...details, path: pathname})}>
             Add to cart
           </button>
         </div>

@@ -1,6 +1,3 @@
-import {Link} from "react-router-dom";
-import Button from "./Button.js";
-
 export default function Operative(props) {
   const { operative, onSelected } = props;
   const productFromCart = props.cart.find(

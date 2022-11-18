@@ -3,45 +3,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import {Link} from "react-router-dom";
 
-//import
-//import Input from "./Input.js";
-//import Button from "./Button.js";
-
-//const stripeLoadedPromise 
-
 export default function Cart(props) {
   const {cart, open, onOpenCart, onProductDelete} = props
   const totalPrice = cart.reduce(
     (total, product) => total + product.price * product.quantity,
     0
   );
-
-  
-//  const [email, setEmail] = useState("");
-//  <form className="pay-form" onSubmit={handleFormSubmit}>
-//    <p>
-//      Enter your email and then click on pay and your products will be
-//      delivered to you on the same day!
-//    </p>
-//    <Input
-//      placeholder="Email"
-//      onChange={(event) => setEmail(event.target.value)}
-//      value={email}
-//      type="email"
-//      required
-//    />
-//    <Button type="submit">Pay</Button>
-//  </form>
-
-//  function handleFormSubmit(event) {
-//    event.preventDefault();
-//
-//    const lineItems = cart.map((product) => {
-//      return { price: product.price_id, quantity: product.quantity };
-//    });
-//
-//    stripeLoadedPromise.then((stripe) => {
-//  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -121,7 +88,16 @@ export default function Cart(props) {
                                     </div>
                                     </div>
                                     <div className="flex flex-1 items-end justify-between text-sm">
-                                      <p className="text-gray-300">Qty {product.quantity}</p>
+                                      <div className='flex align-middle'>
+                                        <p className="text-gray-300 pr-2">Qty</p>
+                                        <button className="text-cyan-700 hover:text-cyan-500 font-medium  my-auto" onClick={() => props.onProductRemove(product)}>
+                                          -
+                                        </button>
+                                        <p className="text-gray-300 px-1">{product.quantity}</p>
+                                        <button className="text-cyan-700 hover:text-cyan-500 font-medium  my-auto" onClick={() => props.onProductAdd(product)}>
+                                          +
+                                        </button>
+                                      </div>
                                     <div className="flex">
                                       <button
                                         type="button"

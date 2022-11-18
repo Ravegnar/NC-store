@@ -1,7 +1,7 @@
 export default function OperativeDetailInfo(props) {
   const {operative} = props;
   return (<>
-    <p className="leading-relaxed mb-4">
+    <p className="leading-relaxed text-justify mb-4">
       {operative.info}
     </p>
     <div className="flex border-t border-gray-200 py-2">

@@ -69,12 +69,35 @@ function App() {
     }
   }
 
+  function handleProductRemove(newProduct) {
+    const existingProduct = cart.find(
+      (product) => product.id === newProduct.id
+    );
+    if (existingProduct.quantity === 1) {
+      return handleProductDelete(existingProduct.id)
+    }
+    if (existingProduct) {
+      const updatedCart = cart.map((product) => {
+        if (product.id === newProduct.id) {
+          return {
+            ...product,
+            quantity: product.quantity - 1,
+          };
+        }
+        return product;
+      });
+      setCart(updatedCart);
+    }
+  }
+
   return (<>
           <BrowserRouter>
             <Navbar cart={cart} onOpenCart={handleOpenCart} />
             <section className="bg-slate-900 min-h-[93vh] scrollbar-hide ">
             <Cart
               onOpenCart={handleOpenCart}
+              onProductAdd={handleProductAdd}
+              onProductRemove={handleProductRemove}
               onProductDelete={handleProductDelete}
               open={open}
               cart={cart}
@@ -103,7 +126,7 @@ function App() {
                 />
                 <Route
                   path="/NC-store/store/NSO/:id/*"
-                  element={<OperativeDetails onProductAdd={handleProductAdd} />}
+                  element={<OperativeDetails cart={cart} onProductAdd={handleProductAdd} onProductRemove={handleProductRemove} onProductDelete={handleProductDelete} />}
                 />
                 <Route 
                   path="/NC-store/store/NSW/weapons"
@@ -140,15 +163,15 @@ function App() {
                 />
                 <Route
                   path="/NC-store/store/NSW/weapons/:id/*"
-                  element={<ProductDetails category="Primary" type="weapons" onProductAdd={handleProductAdd} />}
+                  element={<ProductDetails category="Primary" type="weapons" cart={cart} onProductAdd={handleProductAdd} onProductRemove={handleProductRemove} onProductDelete={handleProductDelete} />}
                 />
                 <Route
                   path="/NC-store/store/NSW/tools/:id/*"
-                  element={<ProductDetails category="Tools" type="tools" onProductAdd={handleProductAdd} />}
+                  element={<ProductDetails category="Tools" type="tools" cart={cart} onProductAdd={handleProductAdd} onProductRemove={handleProductRemove} onProductDelete={handleProductDelete} />}
                 />
                 <Route
                   path="/NC-store/store/NSW/equipment/:id/*"
-                  element={<ProductDetails category="Equipment" type="equipment" onProductAdd={handleProductAdd} />}
+                  element={<ProductDetails category="Equipment" type="equipment" cart={cart} onProductAdd={handleProductAdd} onProductRemove={handleProductRemove} onProductDelete={handleProductDelete} />}
                 />
                 <Route
                   path="/NC-store/checkout"
