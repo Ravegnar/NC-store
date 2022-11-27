@@ -15,7 +15,7 @@ export default function Store(props) {
       <section className="text-white py-2">
         <div className="flex w-full h-[59vh] sm:h-[50vh] overflow-hidden justify-center bg-slate-900">
           <Link className="w-full sm:w-8/12 overflow-hidden relative h-full bg-slate-800 hover:sm:border border-slate-300 sm:opacity-70 hover:opacity-95" to="/NC-store/store/NSO">
-            <img className="w-full h-full object-cover object-top hover:scale-110" src={img1} />
+            <img className="w-full h-full object-cover object-top hover:scale-110 transform duration-300 ease-in-out" src={img1} />
             <div className="absolute w-full flex flex-col bottom-0">
               <h2 className="bottom-0 mx-auto mb-2 sm:mb-10 m-2 text-white uppercase text-3xl font-bold">
                   Operatives
@@ -27,7 +27,7 @@ export default function Store(props) {
           <div className="flex w-full sm:w-8/12 h-full">
 
           <Link className="flex sm:m-2 sm:mt-4 sm:ml-0 relative w-1/3 h-full overflow-hidden bg-slate-600 hover:sm:border border-slate-300 sm:opacity-70 hover:opacity-95" to="/NC-store/store/NSW/weapons">
-              <img className="w-full h-full object-cover object-center hover:scale-110" src={img2} />
+              <img className="w-full h-full object-cover object-center hover:scale-110 transform duration-300 ease-in-out" src={img2} />
               <div className="absolute w-full flex flex-col bottom-0">
                 <h2 className="bottom-0 mx-auto mb-2 sm:mb-10 m-2 text-white uppercase sm:text-3xl font-bold">
                     Weapons
@@ -35,7 +35,7 @@ export default function Store(props) {
               </div>
           </Link>
           <Link className="flex sm:m-2 sm:mt-4 relative w-1/3 h-full overflow-hidden bg-slate-600 hover:sm:border border-slate-300 sm:opacity-70 hover:opacity-95" to="/NC-store/store/NSW/tools">
-              <img className="w-full h-full object-cover object-center hover:scale-110" src={img3} />
+              <img className="w-full h-full object-cover object-center hover:scale-110 transform duration-300 ease-in-out" src={img3} />
               <div className="absolute w-full flex flex-col bottom-0">
                 <h2 className="bottom-0 mx-auto mb-2 sm:mb-10 m-2 text-white uppercase sm:text-3xl font-bold">
                     Tools
@@ -43,7 +43,7 @@ export default function Store(props) {
               </div>
           </Link>
           <Link className="flex sm:m-2 sm:mr-0 sm:mt-4 relative w-1/3 h-full overflow-hidden bg-slate-600 hover:sm:border border-slate-300 sm:opacity-70 hover:opacity-95" to="/NC-store/store/NSW/equipment">
-              <img className="w-full h-full object-cover object-center hover:scale-110" src={img4} />
+              <img className="w-full h-full object-cover object-center hover:scale-110 transform duration-300 ease-in-out" src={img4} />
               <div className="absolute w-full flex flex-col bottom-0">
                 <h2 className="bottom-0 mx-auto mb-2 sm:mb-10 m-2 text-white uppercase sm:text-3xl font-bold">
                     Equipment

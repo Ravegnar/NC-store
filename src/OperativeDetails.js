@@ -10,6 +10,7 @@ import StoreNavigation from "./StoreNavigation.js";
 export default function OperativeDetails(props) {
   const [operative, setOperative] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
+  const [showImage, setShowImage] = useState(false);
   const params = useParams();
   const { pathname } = useLocation();
   const { get, loading } = useFetch(
@@ -34,8 +35,8 @@ export default function OperativeDetails(props) {
   const productFromCart = props.cart.find(
     (cartProduct) => cartProduct.id === operative.id
   );
-
   const quantity = productFromCart ? productFromCart.quantity : 0;
+
   return (<>
     <section className="text-white body-font overflow-hidden">
       <StoreNavigation />
@@ -81,10 +82,12 @@ export default function OperativeDetails(props) {
             <div>
               {quantity > 0 && (<>
                 <div className="flex mt-4 mb-2 items-baseline justify-between">
-                  <p className="title-font font-medium text-white">In the cart</p>
+                  <p className="title-font font-medium text-white">In cart</p>
                   <div className="flex">
                     <button className="text-cyan-700 hover:text-cyan-500 font-medium  my-auto" onClick={() => props.onProductRemove(operative)}>
-                      -
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                        <path fillRule="evenodd" d="M5.25 12a.75.75 0 01.75-.75h12a.75.75 0 010 1.5H6a.75.75 0 01-.75-.75z" clipRule="evenodd" />
+                      </svg>
                     </button>
                     <p className="text-white px-2 my-auto">{quantity}</p>
                     <button className="text-cyan-700 hover:text-cyan-500 font-medium" onClick={() => props.onProductDelete(operative.id)}>
@@ -95,7 +98,7 @@ export default function OperativeDetails(props) {
               </>)}
               <div className="flex items-baseline">
                 <span className="title-font font-medium text-2xl text-white">${operative.price && operative.price.toLocaleString()}</span>
-                <button className="flex ml-auto min-w-[8rem] mt-3 text-white border-4 py-2 px-4 sm:px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-110"
+                <button className="flex ml-auto min-w-[8rem] mt-3 text-white border-4 py-2 px-2 sm:px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-110 transform duration-300 ease-in-out"
                   onClick={() => props.onProductAdd({...operative, path: pathname})}>
                     Add to cart
                 </button>
@@ -105,17 +108,29 @@ export default function OperativeDetails(props) {
 
           <div className="flex flex-col lg:w-4/12 w-full max-w-[38rem] max-h-[46rem] lg:h-auto lg:px-6 p-6 lg:ml-4 h-auto bg-slate-800">
             {operative.image && (<>
-              <div className="w-full h-4/5">
-                <img src={require(`${selectedImage}`)}  className="w-full h-full border-b-8 border-slate-800 my-auto object-cover object-top bg-slate-900" />
+              <div className="relative w-full h-4/5">
+                <div className="flex w-full h-full top-0 bg-black bg-opacity-40 hover:opacity-40 border-b-8 border-slate-800">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 scale-150 mx-auto my-auto">
+                    <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5zm8.25-3.75a.75.75 0 01.75.75v2.25h2.25a.75.75 0 010 1.5h-2.25v2.25a.75.75 0 01-1.5 0v-2.25H7.5a.75.75 0 010-1.5h2.25V7.5a.75.75 0 01.75-.75z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="absolute flex w-full h-full top-0 bg-black bg-opacity-60 hover:opacity-20 cursor-pointer">
+                  <img src={require(`${selectedImage}`)} className="w-full h-full cursor-pointer border-b-8 border-slate-800 my-auto object-cover object-top bg-slate-900" onClick={() => setShowImage(true)} />
+                </div>
               </div>
               <div className="flex w-full h-1/5">
-                <img src={require(`${operative.image}`)} url={operative.image} className="w-1/2 h-full border-r-8 border-t-8 cursor-pointer border-slate-800 object-contain object-center bg-slate-900" onClick={(e) => setSelectedImage(e.currentTarget.getAttribute('url'))} />
-                <img src={require(`${operative.gif}`)} url={operative.gif} className="w-1/2 h-full border-l-8 border-t-8 cursor-pointer border-slate-800 object-contain object-center bg-slate-900" onClick={(e) => setSelectedImage(e.currentTarget.getAttribute('url'))} />
+                <img src={require(`${operative.image}`)} url={operative.image} className="w-1/2 h-full border-r-8 border-t-8 cursor-pointer p-1 hover:p-0 border-slate-800 object-contain object-center bg-slate-900" onClick={(e) => setSelectedImage(e.currentTarget.getAttribute('url'))} />
+                <img src={require(`${operative.gif}`)} url={operative.gif} className="w-1/2 h-full border-l-8 border-t-8 cursor-pointer p-1 hover:p-0 border-slate-800 object-contain object-center bg-slate-900" onClick={(e) => setSelectedImage(e.currentTarget.getAttribute('url'))} />
               </div>
             </>)}
           </div>
         </div>
       </div>
+      {showImage && (<>
+      <div className="fixed flex top-0 z-50 w-full h-full bg-black bg-opacity-70" onClick={() => setShowImage(false)} >
+        <img src={require(`${selectedImage}`)} className="w-auto max-h-[90vh] my-auto mx-auto object-cover object-top bg-slate-900" />
+      </div>
+      </>)}
     </section>
   <Footer />
   </>);

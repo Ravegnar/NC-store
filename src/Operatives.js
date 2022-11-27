@@ -48,7 +48,7 @@ export default function Operatives(props) {
         <img className={`w-full ${selected.classNames} h-[60vh] border-4 mx-auto object-cover object-top`} src={require(`${selected.image}`)} />
       <div className="absolute bottom-0 flex w-full justify-center min-h-[5rem]">
         {selected.id && (
-          <Link className="inline-block m-2 mb-6 min-w-[8rem] text-white border-4 backdrop-blur-md shadow-lg shadow-black py-2 px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-110"
+          <Link className="inline-block m-2 mb-6 min-w-[8rem] text-white border-4 backdrop-blur-md shadow-lg shadow-black py-2 px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-110 transform duration-300 ease-in-out"
             to={`/NC-store/store/NSO/${selected.id}`}>
               Preview 
           </Link>

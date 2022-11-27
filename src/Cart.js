@@ -90,12 +90,16 @@ export default function Cart(props) {
                                     <div className="flex flex-1 items-end justify-between text-sm">
                                       <div className='flex align-middle'>
                                         <p className="text-gray-300 pr-2">Qty</p>
-                                        <button className="text-cyan-700 hover:text-cyan-500 font-medium  my-auto" onClick={() => props.onProductRemove(product)}>
-                                          -
+                                        <button className="text-cyan-700 pr-1 hover:text-cyan-500 font-medium  my-auto" onClick={() => props.onProductRemove(product)}>
+                                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                                            <path fillRule="evenodd" d="M5.25 12a.75.75 0 01.75-.75h12a.75.75 0 010 1.5H6a.75.75 0 01-.75-.75z" clipRule="evenodd" />
+                                          </svg>
                                         </button>
                                         <p className="text-gray-300 px-1">{product.quantity}</p>
                                         <button className="text-cyan-700 hover:text-cyan-500 font-medium  my-auto" onClick={() => props.onProductAdd(product)}>
-                                          +
+                                          <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+                                          </svg>
                                         </button>
                                       </div>
                                     <div className="flex">

@@ -136,6 +136,7 @@ function App() {
                     cart={cart}
                     onProductAdd={handleProductAdd}
                     onProductDelete={handleProductDelete}
+                    onProductRemove={handleProductRemove}
                   />
                 }
                 />
@@ -147,6 +148,7 @@ function App() {
                     cart={cart}
                     onProductAdd={handleProductAdd}
                     onProductDelete={handleProductDelete}
+                    onProductRemove={handleProductRemove}
                   />
                 }
                 />
@@ -158,6 +160,7 @@ function App() {
                     cart={cart}
                     onProductAdd={handleProductAdd}
                     onProductDelete={handleProductDelete}
+                    onProductRemove={handleProductRemove}
                     />
                   }
                 />

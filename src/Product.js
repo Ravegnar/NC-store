@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Product(props) {
-  const {type, cart, details, onProductDelete, onProductAdd} = props;
+  const {type, cart, details, onProductDelete, onProductAdd, onProductRemove} = props;
   const productFromCart = cart.find(
     (product) => product.id === details.id
   );
@@ -9,9 +9,9 @@ export default function Product(props) {
   const pathname = `/NC-store/store/NSW/${type}/${details.id}`
 
   return (<>
-    <div className="flex flex-col place-content-between bg-slate-800 border-0 border-white overflow-hidden p-6 min:w-[300px]">
+    <div className={`${details.searched} flex flex-col place-content-between bg-slate-800 border-0 border-white overflow-hidden p-6`}>
       <Link to={pathname} >
-        <div className="w-full h-48 overflow-hidden bg-slate-900 p-6 hover:p-2 hover:brightness-125 mb-6">
+        <div className="w-full h-36 overflow-hidden bg-slate-900 p-6 hover:p-2 hover:brightness-125 mb-4 transform duration-300 ease-in-out">
           <img
             src={require("" + details.image)}
             alt={details.name}
@@ -37,8 +37,19 @@ export default function Product(props) {
         <div className="flex w-full justify-between items-center px-1">
 
         {quantity > 0 && (<>
-          <p className="text-white">
-            quantity {quantity}
+          <p className="flex items-baseline text-white">
+            In cart 
+            <button className="text-cyan-700 pl-2 pr-1 hover:text-cyan-500 font-medium  my-auto" onClick={() => onProductRemove(details)}>
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                <path fillRule="evenodd" d="M5.25 12a.75.75 0 01.75-.75h12a.75.75 0 010 1.5H6a.75.75 0 01-.75-.75z" clipRule="evenodd" />
+              </svg>
+            </button>
+             {quantity} 
+            <button className="text-cyan-700 hover:text-cyan-500 font-medium  my-auto" onClick={() => props.onProductAdd(details)}>
+              <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+              </svg>
+            </button>
           </p>
           <button className="text-cyan-700 hover:text-cyan-500 font-medium" onClick={() => onProductDelete(details.id)}>
             remove
@@ -48,7 +59,9 @@ export default function Product(props) {
         </div>
       </div>
         <div className="flex justify-center mt-auto">
-          <button className="inline-block w-full mt-4 text-white border-4 py-2 px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-110" onClick={() => onProductAdd({...details, path: pathname})}>
+          <button className="inline-block w-full mt-4 text-white border-4 py-2 px-6 uppercase font-semibold hover:bg-white hover:bg-opacity-25 hover:scale-105 transform duration-300 ease-in-out"
+            onClick={() => onProductAdd({...details, path: pathname})}
+          >
             Add to cart
           </button>
         </div>
