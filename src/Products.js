@@ -31,6 +31,8 @@ export default function Products(props) {
   let savedProducts = []
   let savedTypes = []
 
+  console.log(products)
+
   useEffect(() => {
       get(`NSW/${props.category}.json`).then(data => {
 
@@ -43,8 +45,6 @@ export default function Products(props) {
             savedTypes.push(type)
           }
         })
-
-        //if ((savedProducts.length / 6))
 
         setProducts(savedProducts);
         setProductData(savedProducts);
@@ -61,12 +61,8 @@ export default function Products(props) {
       savepages.push(index)
     }
     setPages(savepages)
-  }, [products])
+  }, [products, typeSortOut])
   
-  const handlePage = (page) => {
-    if (typeof(page) === 'number') {setProductPage(page * 6)}
-  }
-
   const handleProductPage = (status) => {
     document.documentElement.scrollTo(0, 0)
     if (typeof(status) === 'number') {setProductPage(status * 6)}
@@ -138,6 +134,7 @@ export default function Products(props) {
   }, [pathname, typeSortOut])
 
   const handleTypeFilter = (e) => {
+    setProductPage(0)
     setTypeSortOut(e.currentTarget.id)
     setShowFiltering(!showFiltering)
     if (e.currentTarget.id === "") {
@@ -240,19 +237,29 @@ export default function Products(props) {
         </div>
         <div className="flex w-full justify-center my-1">
           {!firstPage && (
-          <button className="text-white px-2 " onClick={() => handleProductPage("previous")} >
-            Previous
+          <button className="text-white px-2 hover:scale-125 transform duration-75 ease-in-out" onClick={() => handleProductPage("previous")}>
+            <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+              <path fillRule="evenodd" d="M15.79 14.77a.75.75 0 01-1.06.02l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 111.04 1.08L11.832 10l3.938 3.71a.75.75 0 01.02 1.06zm-6 0a.75.75 0 01-1.06.02l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 111.04 1.08L5.832 10l3.938 3.71a.75.75 0 01.02 1.06z" clipRule="evenodd" />
+            </svg>
           </button>
           )}
           {pages && pages.map(page => {
+              if (page * 6 === productPage) {
+                return (
+                  <button key={page} className="text-cyan-700 font-bold p-1 scale-150" onClick={() => handleProductPage(page)}>{(page + 1)}</button>
+                )
+              }
             return (
-              <button key={page} className="text-white p-1" onClick={() => handleProductPage(page)}>{(page + 1)}</button>
+              <button key={page} className="text-white font-bold p-1 hover:scale-125 transform duration-75 ease-in-out" onClick={() => handleProductPage(page)}>{(page + 1)}</button>
             )
             })
           }
           {!lastPage && (
-          <button className="text-white px-2" onClick={() => handleProductPage("next")} >
-            Next
+          <button className="text-white px-2 hover:scale-125 transform duration-75 ease-in-out" onClick={() => handleProductPage("next")}>
+            <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+              <path fillRule="evenodd" d="M10.21 14.77a.75.75 0 01.02-1.06L14.168 10 10.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+              <path fillRule="evenodd" d="M4.21 14.77a.75.75 0 01.02-1.06L8.168 10 4.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+            </svg>
           </button>
           )}
           </div>
