@@ -10,6 +10,7 @@ export default function Products(props) {
   const [products, setProducts] = useState([]);
   const [productData, setProductData] = useState([]);
   const [typeSortOut, setTypeSortOut] = useState("");
+  const [categoryTitle, setCategoryTitle] = useState(props.category);
   const [types, setTypes] = useState(false);
   const [sortNames, setSortNames] = useState(false);
   const [sortPrice, setSortPrice] = useState(false);
@@ -18,6 +19,7 @@ export default function Products(props) {
   const [showSorting, setShowSorting] = useState(false);
   const [searchItem, setSearchItem] = useState("");
   const [productPage, setProductPage] = useState(0);
+  const [actualProducts, setActualProducts] = useState(0);
   const [firstPage, setFirstPage] = useState(true);
   const [lastPage, setLastPage] = useState(false);
   const [pages, setPages] = useState(false);
@@ -29,54 +31,55 @@ export default function Products(props) {
   const sortIconRotate = sortNames || sortPrice ? "rotate-180" : "rotate-0"
 
   let savedProducts = []
+  let savedRenders = []
   let savedTypes = []
-
-  console.log(products)
 
   useEffect(() => {
       get(`NSW/${props.category}.json`).then(data => {
 
         Object.keys(data).forEach(prod => {
           const type = data[prod].type
-          savedProducts.push({...data[prod], position: savedProducts.length})
+          savedProducts.push({...data[prod], render: true, position: savedProducts.length})
           if (savedTypes.includes(type)) {
             return
           } else {
             savedTypes.push(type)
           }
         })
-
+        
+        setActualProducts(savedProducts.length)
         setProducts(savedProducts);
         setProductData(savedProducts);
         setTypes(savedTypes);
         setResetFilter(false);
         setProductPage(0)
+        setTypeSortOut("")
+        setSearchItem("")
       }).catch((error) => console.log("Could not load products", error));
   }, [pathname, resetFilter]);
-  
+
   let savepages = []
 
   useEffect(() => {
-    for (let index = 0; index < (products.length / 6); index++) {
+    for (let index = 0; index < (actualProducts / 6); index++) {
       savepages.push(index)
     }
     setPages(savepages)
-  }, [products, typeSortOut])
+  }, [actualProducts, typeSortOut])
   
   const handleProductPage = (status) => {
-    document.documentElement.scrollTo(0, 0)
     if (typeof(status) === 'number') {setProductPage(status * 6)}
     else if (status === "previous") {setProductPage(productPage - 6)}
     else {setProductPage(productPage + 6)}
   }
 
   useEffect(() => {
-    if (products.length === 0) return
+    if (actualProducts === 0) return
     if (productPage === 0) {setFirstPage(true)}
         else {setFirstPage(false)}
-    if (products.length <= productPage + 6) {setLastPage(true)}
+    if (actualProducts <= productPage + 6) {setLastPage(true)}
       else {setLastPage(false)}
-  }, [productPage, products])
+  }, [productPage, actualProducts])
 
   const handleSorting = (sortBy) => {
     if (sortBy === "name") {
@@ -84,12 +87,12 @@ export default function Products(props) {
       setSortPrice(false)
       products.sort((a,b) => {
         if (sortNames){
-          if (a.name < b.name) {return -1;}
-          if (a.name > b.name) {return 1;}
+          if (a.name < b.name) return -1
+          if (a.name > b.name) return 1
           return 0
         } else {
-          if (a.name > b.name) {return -1;}
-          if (a.name < b.name) {return 1;}
+          if (a.name > b.name) return -1
+          if (a.name < b.name) return 1
           return 0
         }
       })
@@ -99,12 +102,12 @@ export default function Products(props) {
       setSortNames(false)
       products.sort((a,b) => {
         if (sortPrice){
-          if (a.price > b.price) {return -1;}
-          if (a.price < b.price) {return 1;}
+          if (a.price > b.price) return -1
+          if (a.price < b.price) return 1
           return 0
         } else {
-          if (a.price < b.price) {return -1;}
-          if (a.price > b.price) {return 1;}
+          if (a.price < b.price) return -1
+          if (a.price > b.price) return 1
           return 0
         }
       })
@@ -118,48 +121,57 @@ export default function Products(props) {
 
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);
-  }, [])
+  }, [productPage, pathname])
 
-  useEffect(() => {
-    productData.forEach(product => {
-      if (product.type === typeSortOut) {
-        savedProducts.push(product)
-        setProducts(savedProducts)
-      }
-    })
-  }, [typeSortOut])
+// přesunout do jednoho effectu
+//  useEffect(() => {
+//    productData.forEach(product => {
+//      if (product.type === typeSortOut) {
+//        savedRenders.push("r")
+//        savedProducts.push(product)
+//      }
+//    })
+//    setProducts(savedProducts)
+//  }, [typeSortOut])
 
-  useEffect(() => {
-    setTypeSortOut("")
-  }, [pathname, typeSortOut])
+//  const handleSearchItem= (e) => {
+//    setSearchItem(e.target.value)
+//  }
 
   const handleTypeFilter = (e) => {
-    setProductPage(0)
-    setTypeSortOut(e.currentTarget.id)
-    setShowFiltering(!showFiltering)
     if (e.currentTarget.id === "") {
-      setResetFilter(true);
+      setSearchItem("")
+      setProducts(productData)
     }
+    setCategoryTitle(props.category)
+    setTypeSortOut(e.currentTarget.id)
+    setProductPage(0)
+    setShowFiltering(!showFiltering)
   }
 
   useEffect(() => {
 		const cleanedSearchItem = searchItem.toLowerCase().trim()
-    setTypeSortOut(searchItem)
+  //  setSearchSortOut(searchItem)
     productData.forEach(product => {
       if (product.name.toLowerCase().includes(cleanedSearchItem)) {
-        savedProducts.push({...product, searched: "block"})
-        setProducts(savedProducts);
-      } else {
-        savedProducts.push({...product, searched: "hidden"})
-        setProducts(savedProducts);
+        if (typeSortOut === "" || typeSortOut === product.type) {
+          savedRenders.push("r")
+          savedProducts.push({...product, position: savedRenders.length -1 ,render: true})
+        }
       }
     })
-  }, [searchItem])
+    if (typeSortOut !== "") {
+      setCategoryTitle(typeSortOut)
+    }
+    setActualProducts(savedRenders.length)
+    setProducts(savedProducts)
+    setProductPage(0)
+  }, [searchItem, typeSortOut])
 
   return (<>
     <StoreNavigation />
     <section className="">
-      <h2 className="block sm:hidden w-full text-white text-2xl text-center font-bold">{props.category}</h2>
+      <h2 className="block lg:hidden w-full text-white text-2xl text-center font-bold">{categoryTitle}</h2>
       <div className="mx-auto max-w-2xl px-4 sm:pb-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="relative flex justify-between items-center py-5 lg:mx-12">
           <div className="flex">
@@ -171,7 +183,7 @@ export default function Products(props) {
               {showFiltering && (<>
                 <div className="absolute z-40 flex flex-col bg-slate-700 p-4">
                   <button className="text-cyan-600 text-left truncate py-1 px-2 hover:bg-slate-800" id="" onClick={(e) => handleTypeFilter(e)}>
-                    Show all
+                    Reset filters
                   </button>
                   {types && types.map(productType => {
                     let productTypeText = productType + "s"
@@ -197,10 +209,10 @@ export default function Products(props) {
               </button>
               {showSorting && (<>
                 <div className="absolute z-40 flex flex-col bg-slate-700 p-4">
-                  <button className="text-white truncate" onClick={() => handleSorting("name")}>
+                  <button className="text-white truncate hover:bg-slate-800 py-1 px-2" onClick={() => handleSorting("name")}>
                     Sort by name
                   </button>
-                  <button className="text-white truncate" onClick={() => handleSorting("price")}>
+                  <button className="text-white truncate hover:bg-slate-800 py-1 px-2" onClick={() => handleSorting("price")}>
                     Sort by price
                   </button>
                 </div>
@@ -209,12 +221,12 @@ export default function Products(props) {
           </div>
 
           <div className="relative flex mx-2 z-40">
-					  <input className="h-[28px] w-40 p-1" onChange={(e) => setSearchItem(e.target.value)} type="text" placeholder="Search item.." />
+					  <input className="h-[28px] w-40 p-1" value={searchItem} onChange={(e) => setSearchItem(e.target.value)} type="text" placeholder="Search product.." />
             <svg className="absolute bg-white mt-[2px] h-6 w-6 right-0 text-slate-600 cursor-default" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
           </div>
-          <h2 className="absolute z-0 hidden sm:block w-full mb-2 text-white text-3xl text-center font-bold">{props.category}</h2>
+          <h2 className="absolute z-0 hidden lg:block w-full mb-2 text-white text-3xl text-center font-bold">{categoryTitle}</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 mx-0 sm:mx-0 md:mx-0 lg:mx-12">

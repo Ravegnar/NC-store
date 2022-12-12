@@ -9,7 +9,8 @@ export default function Product(props) {
   const pathname = `/NC-store/store/NSW/${type}/${details.id}`
 
   return (<>
-    <div className={`${details.searched} flex flex-col place-content-between bg-slate-800 border-0 border-white overflow-hidden p-6`}>
+  {details.render && (
+    <div className="flex flex-col place-content-between bg-slate-800 border-0 border-white overflow-hidden p-6">
       <Link to={pathname} >
         <div className="w-full h-36 overflow-hidden bg-slate-900 p-6 hover:p-2 hover:brightness-125 mb-4 transform duration-300 ease-in-out">
           <img
@@ -67,5 +68,6 @@ export default function Product(props) {
         </div>
 
     </div>
+  )}
   </>)
 }
