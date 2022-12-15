@@ -14,7 +14,6 @@ export default function Products(props) {
   const [types, setTypes] = useState(false);
   const [sortNames, setSortNames] = useState(false);
   const [sortPrice, setSortPrice] = useState(false);
-  const [resetFilter, setResetFilter] = useState(false);
   const [showFiltering, setShowFiltering] = useState(false);
   const [showSorting, setShowSorting] = useState(false);
   const [searchItem, setSearchItem] = useState("");
@@ -51,12 +50,11 @@ export default function Products(props) {
         setProducts(savedProducts);
         setProductData(savedProducts);
         setTypes(savedTypes);
-        setResetFilter(false);
         setProductPage(0)
         setTypeSortOut("")
         setSearchItem("")
       }).catch((error) => console.log("Could not load products", error));
-  }, [pathname, resetFilter]);
+  }, [pathname]);
 
   let savepages = []
 
